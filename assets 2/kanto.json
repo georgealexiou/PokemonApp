@@ -4,11 +4,7 @@
     "name": "bulbasaur",
     "url": "https://pokeapi.co/api/v2/pokemon/1/"
   },
-  {
-    "id": 2,
-    "name": "ivysaur",
-    "url": "https://pokeapi.co/api/v2/pokemon/2/"
-  },
+  { "id": 2, "name": "ivysaur", "url": "https://pokeapi.co/api/v2/pokemon/2/" },
   {
     "id": 3,
     "name": "venusaur",
@@ -109,16 +105,8 @@
     "name": "fearow",
     "url": "https://pokeapi.co/api/v2/pokemon/22/"
   },
-  {
-    "id": 23,
-    "name": "ekans",
-    "url": "https://pokeapi.co/api/v2/pokemon/23/"
-  },
-  {
-    "id": 24,
-    "name": "arbok",
-    "url": "https://pokeapi.co/api/v2/pokemon/24/"
-  },
+  { "id": 23, "name": "ekans", "url": "https://pokeapi.co/api/v2/pokemon/23/" },
+  { "id": 24, "name": "arbok", "url": "https://pokeapi.co/api/v2/pokemon/24/" },
   {
     "id": 25,
     "name": "pikachu",
@@ -199,11 +187,7 @@
     "name": "wigglytuff",
     "url": "https://pokeapi.co/api/v2/pokemon/40/"
   },
-  {
-    "id": 41,
-    "name": "zubat",
-    "url": "https://pokeapi.co/api/v2/pokemon/41/"
-  },
+  { "id": 41, "name": "zubat", "url": "https://pokeapi.co/api/v2/pokemon/41/" },
   {
     "id": 42,
     "name": "golbat",
@@ -214,21 +198,13 @@
     "name": "oddish",
     "url": "https://pokeapi.co/api/v2/pokemon/43/"
   },
-  {
-    "id": 44,
-    "name": "gloom",
-    "url": "https://pokeapi.co/api/v2/pokemon/44/"
-  },
+  { "id": 44, "name": "gloom", "url": "https://pokeapi.co/api/v2/pokemon/44/" },
   {
     "id": 45,
     "name": "vileplume",
     "url": "https://pokeapi.co/api/v2/pokemon/45/"
   },
-  {
-    "id": 46,
-    "name": "paras",
-    "url": "https://pokeapi.co/api/v2/pokemon/46/"
-  },
+  { "id": 46, "name": "paras", "url": "https://pokeapi.co/api/v2/pokemon/46/" },
   {
     "id": 47,
     "name": "parasect",
@@ -309,11 +285,7 @@
     "name": "poliwrath",
     "url": "https://pokeapi.co/api/v2/pokemon/62/"
   },
-  {
-    "id": 63,
-    "name": "abra",
-    "url": "https://pokeapi.co/api/v2/pokemon/63/"
-  },
+  { "id": 63, "name": "abra", "url": "https://pokeapi.co/api/v2/pokemon/63/" },
   {
     "id": 64,
     "name": "kadabra",
@@ -374,11 +346,7 @@
     "name": "graveler",
     "url": "https://pokeapi.co/api/v2/pokemon/75/"
   },
-  {
-    "id": 76,
-    "name": "golem",
-    "url": "https://pokeapi.co/api/v2/pokemon/76/"
-  },
+  { "id": 76, "name": "golem", "url": "https://pokeapi.co/api/v2/pokemon/76/" },
   {
     "id": 77,
     "name": "ponyta",
@@ -414,21 +382,13 @@
     "name": "farfetchd",
     "url": "https://pokeapi.co/api/v2/pokemon/83/"
   },
-  {
-    "id": 84,
-    "name": "doduo",
-    "url": "https://pokeapi.co/api/v2/pokemon/84/"
-  },
+  { "id": 84, "name": "doduo", "url": "https://pokeapi.co/api/v2/pokemon/84/" },
   {
     "id": 85,
     "name": "dodrio",
     "url": "https://pokeapi.co/api/v2/pokemon/85/"
   },
-  {
-    "id": 86,
-    "name": "seel",
-    "url": "https://pokeapi.co/api/v2/pokemon/86/"
-  },
+  { "id": 86, "name": "seel", "url": "https://pokeapi.co/api/v2/pokemon/86/" },
   {
     "id": 87,
     "name": "dewgong",
@@ -439,11 +399,7 @@
     "name": "grimer",
     "url": "https://pokeapi.co/api/v2/pokemon/88/"
   },
-  {
-    "id": 89,
-    "name": "muk",
-    "url": "https://pokeapi.co/api/v2/pokemon/89/"
-  },
+  { "id": 89, "name": "muk", "url": "https://pokeapi.co/api/v2/pokemon/89/" },
   {
     "id": 90,
     "name": "shellder",
@@ -469,21 +425,13 @@
     "name": "gengar",
     "url": "https://pokeapi.co/api/v2/pokemon/94/"
   },
-  {
-    "id": 95,
-    "name": "onix",
-    "url": "https://pokeapi.co/api/v2/pokemon/95/"
-  },
+  { "id": 95, "name": "onix", "url": "https://pokeapi.co/api/v2/pokemon/95/" },
   {
     "id": 96,
     "name": "drowzee",
     "url": "https://pokeapi.co/api/v2/pokemon/96/"
   },
-  {
-    "id": 97,
-    "name": "hypno",
-    "url": "https://pokeapi.co/api/v2/pokemon/97/"
-  },
+  { "id": 97, "name": "hypno", "url": "https://pokeapi.co/api/v2/pokemon/97/" },
   {
     "id": 98,
     "name": "krabby",
@@ -749,9 +697,5 @@
     "name": "mewtwo",
     "url": "https://pokeapi.co/api/v2/pokemon/150/"
   },
-  {
-    "id": 151,
-    "name": "mew",
-    "url": "https://pokeapi.co/api/v2/pokemon/151/"
-  }
+  { "id": 151, "name": "mew", "url": "https://pokeapi.co/api/v2/pokemon/151/" }
 ]

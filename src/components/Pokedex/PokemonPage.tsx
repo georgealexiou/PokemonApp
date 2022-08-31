@@ -5,12 +5,9 @@ import {Image} from 'react-native'
 export default function PokemonPage({route, navigation} : any) {
     const {name, url} = route.params;
     const [sprite, setSprite] = useState<string>()
-    const [colour, setColour] = useState('red');
     useEffect(() => {
-        console.log('RERENDER')
         const getPokemonInfo = async () => {
             try{
-                console.log('started')
                 const response = await fetch(url, {});
                 const json = await response.json();
                 setSprite(json.sprites.front_default)
@@ -20,7 +17,7 @@ export default function PokemonPage({route, navigation} : any) {
         }
         getPokemonInfo();
 
-    }, [colour]);
+    },);
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>{name}</Text>
@@ -30,12 +27,9 @@ export default function PokemonPage({route, navigation} : any) {
                 uri: sprite,
                 }}
             />
-            <Button onPress={() => setColour('blue')} title={colour}/>
         </View>
     );
 }
-
-
 
 const styles = StyleSheet.create({
     container: {

@@ -1,4 +1,4 @@
-import Navigator from './src/navigation/Navigator.tsx';
+import Navigator from './src/Navigation/Navigator';
 
 export default function App() {
   return (
