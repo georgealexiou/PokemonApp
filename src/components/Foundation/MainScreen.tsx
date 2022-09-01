@@ -28,16 +28,12 @@ const MainScreen = ({ navigation }: any) => {
               justifyContent: "center",
             }}
           >
-            <Text
-              style={{
-                fontSize: 25,
-                textAlign: "center",
-                marginBottom: 16,
-                color: "#ffffff",
+            <Image
+              style={styles.tinyLogo}
+              source={{
+                uri: "https://i.pinimg.com/originals/bd/cd/20/bdcd20f5411ee5785889542d303ad4cb.png",
               }}
-            >
-              Welcome to your Pokedex
-            </Text>
+            />
             <TouchableOpacity
               style={styles.button}
               onPress={() =>
@@ -68,8 +64,8 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   tinyLogo: {
-    width: 200,
-    height: 200,
+    width: 350,
+    height: 60,
   },
   image: {
     flex: 1,

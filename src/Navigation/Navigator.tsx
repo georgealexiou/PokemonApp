@@ -9,6 +9,7 @@ import MainScreen from "../components/Foundation/MainScreen";
 import Credits from "../components/Foundation/Credits";
 import Settings from "../components/Foundation/Settings";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -48,12 +49,22 @@ function Main() {
       <Tab.Screen
         name="Home"
         component={MainScreen}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ tintColor }) => (
+            <Icon name="home" color={tintColor} size={25} />
+          ),
+        }}
       />
       <Tab.Screen
         name="Settings"
         component={Settings}
-        options={{ headerShown: true }}
+        options={{
+          headerShown: true,
+          tabBarIcon: ({ tintColor }) => (
+            <Icon name="gear" color={tintColor} size={25} />
+          ),
+        }}
       />
     </Tab.Navigator>
   );
