@@ -5,7 +5,5 @@ This is a Training Project for my onboarding in a Full-Stack role. The goal is t
 This is all done using PokeAI.
 https://pokeapi.co/
 
-![Deoxys Page](https://i.imgur.com/xDiRHFH.png | width=100)
-![Volcarona Page](https://imgur.com/vGkI9Dy.png | width=100)
-![Selection Menu](https://imgur.com/RD88qRT.png | width=100)
-![Home Screen](https://imgur.com/xYzwNJr.png | width=100)
+![Pokemon Pages](https://imgur.com/Q6SpV9v.png)
+![Other Pages](https://imgur.com/WcCml2X.png)
