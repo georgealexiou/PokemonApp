@@ -13,7 +13,7 @@ import {
 } from "react-native";
 
 const image = {
-  uri: "https://i.pinimg.com/originals/65/81/81/6581813147f0f62f50a492b2bedeabec.jpg",
+  uri: "https://static.wikia.nocookie.net/pokemongo/images/4/47/Fall_2021_loading_screen.png/revision/latest/scale-to-width-down/1000?cb=20211024052333",
 };
 
 const MainScreen = ({ navigation }: any) => {
@@ -40,13 +40,29 @@ const MainScreen = ({ navigation }: any) => {
                 navigation.navigate("Generations", { screen: "Settings" })
               }
             >
-              <Text>Pokedex</Text>
+              <Text
+                style={{
+                  fontFamily: "Helvetica",
+                  fontSize: 18,
+                  fontWeight: "bold",
+                }}
+              >
+                Pokédex
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.button}
               onPress={() => navigation.navigate("Credits")}
             >
-              <Text>Credits</Text>
+              <Text
+                style={{
+                  fontFamily: "Helvetica",
+                  fontSize: 18,
+                  fontWeight: "bold",
+                }}
+              >
+                Credits
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -58,10 +74,14 @@ const MainScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    backgroundColor: "#bebebe",
     padding: 10,
     width: 300,
     marginTop: 16,
+    borderRadius: 5,
+    opacity: 0.8,
+    borderColor: "black",
+    borderWidth: 2,
   },
   tinyLogo: {
     width: 350,

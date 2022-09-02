@@ -11,9 +11,14 @@ import {
   Button,
   ListViewBase,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 
 const { width, height } = Dimensions.get("window");
+
+const image = {
+  uri: "https://static.wikia.nocookie.net/pokemongo/images/2/2f/Season_of_Alola_loading_screen.png/revision/latest?cb=20220628154345",
+};
 
 const regions = [
   {
@@ -90,22 +95,26 @@ export default function Generations({ navigation }: any) {
             }}
             style={styles.tinyLogo}
           />
-          <View style={styles.buttonIconSeparatorStyle} />
-          <Text style={styles.buttonTextStyle}>{item.name}</Text>
+          {/* <View style={styles.buttonIconSeparatorStyle} /> */}
+          {/* <Text style={styles.buttonTextStyle}>{item.name}</Text> */}
         </TouchableOpacity>
       </View>
     );
   };
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <FlatList
-          data={regions}
-          renderItem={renderItem}
-          ItemSeparatorComponent={() => <Text> </Text>}
-        />
-      </SafeAreaView>
+    <View style={{ flex: 1 }}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <View style={{ alignItems: "center" }}>
+          <SafeAreaView>
+            <FlatList
+              data={regions}
+              renderItem={renderItem}
+              ItemSeparatorComponent={() => <Text> </Text>}
+            />
+          </SafeAreaView>
+        </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -120,15 +129,16 @@ const styles = StyleSheet.create({
   tinyLogo: {
     width: width * 0.5,
     height: 50,
+    margin: 8,
   },
   buttonStyle: {
-    flexDirection: "row",
     alignItems: "center",
-    borderWidth: 0.5,
-    borderColor: "#fff",
-    height: 40,
+    backgroundColor: "#ffffff",
+    width: 300,
     borderRadius: 5,
-    margin: 5,
+    opacity: 0.7,
+    borderColor: "black",
+    borderWidth: 2,
   },
   buttonImageIconStyle: {
     padding: 10,
@@ -146,5 +156,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 4,
     marginLeft: 10,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
   },
 });

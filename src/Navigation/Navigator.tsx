@@ -45,15 +45,15 @@ export default function Navigator() {
 
 function Main() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{ tabBarStyle: { backgroundColor: "black" } }}
+    >
       <Tab.Screen
         name="Home"
         component={MainScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({ tintColor }) => (
-            <Icon name="home" color={tintColor} size={25} />
-          ),
+          tabBarIcon: () => <Icon name="home" color="gray" size={25} />,
         }}
       />
       <Tab.Screen
@@ -61,9 +61,7 @@ function Main() {
         component={Settings}
         options={{
           headerShown: true,
-          tabBarIcon: ({ tintColor }) => (
-            <Icon name="gear" color={tintColor} size={25} />
-          ),
+          tabBarIcon: () => <Icon name="gear" color="gray" size={25} />,
         }}
       />
     </Tab.Navigator>
