@@ -34,4 +34,8 @@ export const styles = StyleSheet.create({
     marginTop: 8,
     borderRadius: 7,
   },
+  topContainer: {
+     margin: 10,
+     flexDirection: "row",
+  }
 });

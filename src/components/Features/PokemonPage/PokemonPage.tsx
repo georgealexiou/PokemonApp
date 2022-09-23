@@ -7,7 +7,7 @@ import {
   Dimensions,
   Button,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { Image } from "react-native";
 import { typeColors } from "../../Resource/Resource";
 import { styles } from "./styles";
@@ -15,6 +15,7 @@ import { styles } from "./styles";
 const { width, height } = Dimensions.get("window");
 
 type RenderItemProps = {
+  base_stat: number;
   item: {
     effort: number;
     base_stat: number;
@@ -79,7 +80,7 @@ export default function PokemonPage({ route, navigation }: any) {
   return (
     <View style={{ backgroundColor: typeColors.get(types[0]) }}>
       <View>
-        <View style={{ alignItems: "start", margin: 10, flexDirection: "row" }}>
+        <View style={styles.topContainer}>
           <View>
             <Text style={styles.titleText}>{name}</Text>
             {types[1] === "" ? (
