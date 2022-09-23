@@ -8,12 +8,11 @@ import {
   Button,
 } from "react-native";
 
-import { RootStackParams } from "../../Navigation/Navigator";
+import { RootStackParams } from "../../../RootStack/RootStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { getRegionalDex } from "../Resource/Resource";
+import { getRegionalDex } from "../../Resource/Resource";
+import { styles } from "./styles";
 
-const { width, height } = Dimensions.get("window");
-const list = [];
 type RenderItemProps = {
   item: {
     name: string;
@@ -21,9 +20,12 @@ type RenderItemProps = {
   };
 };
 
-export type PokedexProps = NativeStackScreenProps<RootStackParams, "Pokedex">;
+export type PokedexProps = NativeStackScreenProps<
+  RootStackParams,
+  "PokemonListScreen"
+>;
 
-export default function Pokedex({ route, navigation }: PokedexProps) {
+const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
   const { id, name } = route.params;
   const pokemonList = getRegionalDex(id);
   const renderItem: React.FC<RenderItemProps> = ({ item }) => {
@@ -40,22 +42,11 @@ export default function Pokedex({ route, navigation }: PokedexProps) {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={styles.separatePokemon}>
+      <SafeAreaView>
         <FlatList data={pokemonList} renderItem={renderItem} />
       </SafeAreaView>
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  separatePokemon: {
-    width,
-    fontSize: 20,
-  },
-});
+export default PokemonListScreen;

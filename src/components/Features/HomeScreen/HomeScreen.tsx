@@ -1,6 +1,3 @@
-// React Native Bottom Navigation
-// https://aboutreact.com/react-native-bottom-navigation/
-
 import * as React from "react";
 import {
   TouchableOpacity,
@@ -12,11 +9,13 @@ import {
   ImageBackground,
 } from "react-native";
 
+import { styles } from "./styles";
+
 const image = {
   uri: "https://static.wikia.nocookie.net/pokemongo/images/4/47/Fall_2021_loading_screen.png/revision/latest/scale-to-width-down/1000?cb=20211024052333",
 };
 
-const MainScreen = ({ navigation }: any) => {
+const HomeScreen = ({ navigation }: any) => {
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
@@ -37,7 +36,7 @@ const MainScreen = ({ navigation }: any) => {
             <TouchableOpacity
               style={styles.button}
               onPress={() =>
-                navigation.navigate("Generations", { screen: "Settings" })
+                navigation.navigate("GenerationsScreen", { screen: "Settings" })
               }
             >
               <Text
@@ -71,26 +70,4 @@ const MainScreen = ({ navigation }: any) => {
   );
 };
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    backgroundColor: "#bebebe",
-    padding: 10,
-    width: 300,
-    marginTop: 16,
-    borderRadius: 5,
-    opacity: 0.8,
-    borderColor: "black",
-    borderWidth: 2,
-  },
-  tinyLogo: {
-    width: 350,
-    height: 60,
-  },
-  image: {
-    flex: 1,
-    justifyContent: "center",
-  },
-});
-
-export default MainScreen;
+export default HomeScreen;

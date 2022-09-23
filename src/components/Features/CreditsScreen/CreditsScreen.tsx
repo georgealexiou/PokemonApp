@@ -13,7 +13,7 @@ const image = {
   uri: "https://i.pinimg.com/originals/65/81/81/6581813147f0f62f50a492b2bedeabec.jpg",
 };
 
-const Credits = ({ navigation }: any) => {
+const CreditsScreen = ({ navigation }: any) => {
   return (
     <View>
       {/* <ImageBackground
@@ -38,4 +38,4 @@ const Credits = ({ navigation }: any) => {
   );
 };
 
-export default Credits;
+export default CreditsScreen;

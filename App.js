@@ -1,7 +1,7 @@
-import Navigator from './src/Navigation/Navigator';
+import RootStack from './src/RootStack/RootStack';
 
 export default function App() {
   return (
-    <Navigator/>
+    <RootStack/>
   );
 }
