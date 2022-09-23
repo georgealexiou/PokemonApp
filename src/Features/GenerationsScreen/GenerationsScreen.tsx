@@ -1,15 +1,10 @@
 import React from "react";
 import {
-  StyleSheet,
   Image,
   Text,
-  Modal,
   View,
   FlatList,
   SafeAreaView,
-  Dimensions,
-  Button,
-  ListViewBase,
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
@@ -83,7 +78,6 @@ export default function GenerationsScreen({ navigation }: any) {
 
     return (
       <View>
-        {/* <Button title={item.name} onPress={onPress({ item })} /> */}
         <TouchableOpacity
           style={styles.buttonStyle}
           onPress={onPress({ item })}
@@ -94,8 +88,6 @@ export default function GenerationsScreen({ navigation }: any) {
             }}
             style={styles.tinyLogo}
           />
-          {/* <View style={styles.buttonIconSeparatorStyle} /> */}
-          {/* <Text style={styles.buttonTextStyle}>{item.name}</Text> */}
         </TouchableOpacity>
       </View>
     );

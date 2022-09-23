@@ -1,16 +1,9 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  FlatList,
-  SafeAreaView,
-  Dimensions,
-  Button,
-} from "react-native";
+import { View, FlatList, SafeAreaView, Button } from "react-native";
 
-import { RootStackParams } from "../../../RootStack/RootStack";
+import { RootStackParams } from "../../RootStack/RootStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { getRegionalDex } from "../../Resource/Resource";
+import { getRegionalDex } from "../../Components/Resource/Resource";
 import { styles } from "./styles";
 
 type RenderItemProps = {

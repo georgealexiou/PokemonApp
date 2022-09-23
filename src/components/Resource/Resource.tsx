@@ -6,7 +6,6 @@ import unovaList from "../../../assets/regions/unova.json";
 import kalosList from "../../../assets/regions/kalos.json";
 import alolaList from "../../../assets/regions/alola.json";
 import galarList from "../../../assets/regions/galar.json";
-import paldeaList from "../../../assets/regions/paldea.json";
 
 export const typeColors = new Map([
   ["Normal", "#AAAA99"],

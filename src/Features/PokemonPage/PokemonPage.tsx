@@ -1,16 +1,9 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  SafeAreaView,
-  Dimensions,
-  Button,
-} from "react-native";
-import React, { ReactNode, useEffect, useState } from "react";
+import { Text, View, Dimensions } from "react-native";
+import React, { useEffect, useState } from "react";
 import { Image } from "react-native";
-import { typeColors } from "../../Resource/Resource";
+import { typeColors } from "../../Components/Resource/Resource";
 import { styles } from "./styles";
+import { Stats } from "../../Components/Molecules/Stats/Stats";
 
 const { width, height } = Dimensions.get("window");
 
@@ -114,8 +107,9 @@ export default function PokemonPage({ route, navigation }: any) {
       <View
         style={{
           top: 40,
-          backgroundColor: "white",
-          borderRadius: 20,
+          backgroundColor: "#2a2a2a",
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
         }}
       >
         <View>
@@ -130,8 +124,7 @@ export default function PokemonPage({ route, navigation }: any) {
 
           <View
             style={{
-              backgroundColor: "white",
-              borderColor: "#dadada",
+              borderColor: "#505050",
               borderBottomWidth: 3,
               flexDirection: "row",
               top: -190,
@@ -147,108 +140,25 @@ export default function PokemonPage({ route, navigation }: any) {
               }}
             >
               <View style={{ marginRight: 10 }}>
-                <Text style={{ fontWeight: "bold" }}>Pokedex Entry</Text>
-                <Text style={{ fontWeight: "bold" }}>Ability </Text>
+                <Text style={styles.boldTextColor}>Pokedex Entry</Text>
+                <Text style={styles.boldTextColor}>Ability </Text>
               </View>
               <View>
-                <Text>{id}</Text>
-                <Text>{ability}</Text>
+                <Text style={styles.textColor}>{id}</Text>
+                <Text style={styles.textColor}>{ability}</Text>
               </View>
             </View>
           </View>
-
-          {/* stats */}
-          <View
-            style={{
-              borderColor: "#dadada",
-              borderBottomWidth: 3,
-              top: -200,
-              margin: 10,
-              marginBottom: 1,
-            }}
-          >
-            <Text style={{ fontWeight: "bold", marginTop: 6, fontSize: 20 }}>
-              Stats
-            </Text>
-            <View style={{ flexDirection: "row" }}>
-              <View style={{ marginRight: 10 }}>
-                <Text style={{ marginTop: 5.5, fontWeight: "bold" }}>HP</Text>
-                <Text style={{ marginTop: 5.5, fontWeight: "bold" }}>
-                  Attack
-                </Text>
-                <Text style={{ marginTop: 5.5, fontWeight: "bold" }}>
-                  Defence
-                </Text>
-                <Text style={{ marginTop: 5.5, fontWeight: "bold" }}>
-                  Special Attack
-                </Text>
-                <Text style={{ marginTop: 5.5, fontWeight: "bold" }}>
-                  Special Defence
-                </Text>
-                <Text style={{ marginTop: 5.5, fontWeight: "bold" }}>
-                  Speed
-                </Text>
-              </View>
-              <View style={{ marginBottom: 6, marginRight: 10 }}>
-                <Text style={{ marginTop: 5.5, color: "black" }}>
-                  {stats[0].base_stat}
-                </Text>
-                <Text style={{ marginTop: 5.5, color: "black" }}>
-                  {stats[1].base_stat}
-                </Text>
-                <Text style={{ marginTop: 5.5, color: "black" }}>
-                  {stats[2].base_stat}
-                </Text>
-                <Text style={{ marginTop: 5.5, color: "black" }}>
-                  {stats[3].base_stat}
-                </Text>
-                <Text style={{ marginTop: 5.5, color: "black" }}>
-                  {stats[4].base_stat}
-                </Text>
-                <Text style={{ marginTop: 5.5, color: "black" }}>
-                  {stats[5].base_stat}
-                </Text>
-              </View>
-              <View style={{ marginBottom: 6 }}>
-                <StatBar stat={stats[0].base_stat}></StatBar>
-                <StatBar stat={stats[1].base_stat}></StatBar>
-                <StatBar stat={stats[2].base_stat}></StatBar>
-                <StatBar stat={stats[3].base_stat}></StatBar>
-                <StatBar stat={stats[4].base_stat}></StatBar>
-                <StatBar stat={stats[5].base_stat}></StatBar>
-              </View>
-            </View>
-          </View>
+          <Stats
+            hp={stats[0].base_stat}
+            attack={stats[1].base_stat}
+            defence={stats[2].base_stat}
+            spAttack={stats[3].base_stat}
+            spDefence={stats[4].base_stat}
+            speed={stats[5].base_stat}
+          ></Stats>
         </View>
       </View>
     </View>
   );
 }
-
-type StatBarProps = {
-  stat: number;
-};
-
-const StatBar: React.FC<StatBarProps> = ({ stat }) => {
-  const percent = stat / 255;
-  var color = "#F34444";
-  if (stat > 30) color = "#F87E10";
-  if (stat > 60) color = "#FDDD57";
-  if (stat > 100) color = "#A0E514";
-  if (stat > 130) color = "#43CD5F";
-  if (stat > 200) color = "#3CC2B8";
-
-  return (
-    <View style={{ flexDirection: "row" }}>
-      <View
-        style={{
-          marginTop: 5,
-          borderRadius: 5,
-          width: (width / 2) * percent,
-          height: 16,
-          backgroundColor: color,
-        }}
-      ></View>
-    </View>
-  );
-};

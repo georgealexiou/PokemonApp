@@ -1,10 +1,8 @@
 import * as React from "react";
 import {
   TouchableOpacity,
-  StyleSheet,
   View,
   Text,
-  SafeAreaView,
   Image,
   ImageBackground,
 } from "react-native";

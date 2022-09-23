@@ -1,13 +1,13 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native';
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   tinyLogo: {
     width: 0,
@@ -20,15 +20,15 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 35,
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
   },
   separateStats: {
     width,
     fontSize: 20,
   },
   typeBox: {
-    backgroundColor: "#9b9b9b",
+    backgroundColor: '#9b9b9b',
     opacity: 0.7,
     marginRight: 4,
     marginTop: 8,
@@ -36,6 +36,13 @@ export const styles = StyleSheet.create({
   },
   topContainer: {
      margin: 10,
-     flexDirection: "row",
-  }
+     flexDirection: 'row',
+  },
+  textColor: {
+    color: 'white',
+  },
+  boldTextColor: {
+    fontWeight:'bold',
+    color: 'white',
+  },
 });
