@@ -1,17 +1,26 @@
-import React from "react";
-import { FlatList, SafeAreaView, Pressable, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import {
+  FlatList,
+  SafeAreaView,
+  Pressable,
+  Text,
+  View,
+  Image,
+} from "react-native";
 
 import { RootStackParams } from "../../RootStack/RootStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { getRegionalDex } from "../../Components/Resource/Resource";
 import { styles } from "./styles";
-import { theme } from "../../../themes/darkMode";
 import Screen from "../../Components/Screen/Screen";
+import { theme } from "../../../themes/darkMode";
 
 type RenderItemProps = {
   item: {
-    name: string;
-    url: string;
+    id: number;
+    name: {};
+    type: string[];
+    base: {};
   };
 };
 
@@ -21,26 +30,64 @@ export type PokedexProps = NativeStackScreenProps<
 >;
 
 const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
+  const BASE_URL =
+    "https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/sprites/";
+  const EXTENSION = "MS.png";
+
   const { id, name } = route.params;
   const pokemonList = getRegionalDex(id);
   const renderItem: React.FC<RenderItemProps> = ({ item }) => {
     const onPress = (arg: RenderItemProps) => () => {
+      console.log(item);
       navigation.navigate("PokemonPage", item);
     };
 
+    const formatNumber = (id: number) => {
+      if (id < 10) {
+        return "00" + id;
+      } else if (id < 100) {
+        return "0" + id;
+      }
+      return "" + id;
+    };
+
     return (
-      <Pressable style={styles.pressableStyle} onPress={onPress({ item })}>
+      <Pressable
+        style={{
+          ...styles.pressableStyle,
+          backgroundColor: theme.typePalette.get(item.type[0]),
+        }}
+        onPress={onPress({ item })}
+      >
         <View
           style={{
-            flex: 1,
-            backgroundColor: theme.palette.ghost,
-            width: "100%",
-            borderRadius: 12,
+            top: -10,
+            backgroundColor: "#343434",
+            borderRadius: 9,
+            alignSelf: "center",
+            width: "50%",
           }}
-        ></View>
-        <View>
-          <Text style={styles.text}>{item.name}</Text>
+        >
+          <Text
+            style={{
+              alignSelf: "center",
+              fontSize: 20,
+              color: "white",
+              fontWeight: "bold",
+            }}
+          >
+            {"#" + formatNumber(item.id)}
+          </Text>
         </View>
+        <View style={{ justifyContent: "center" }}>
+          <Image
+            source={{
+              uri: BASE_URL + formatNumber(item.id) + EXTENSION,
+            }}
+            style={{ width: 80, height: 80, alignSelf: "center", top: -10 }}
+          />
+        </View>
+        <Text style={{ ...styles.text, top: -15 }}>{item.name.english}</Text>
       </Pressable>
     );
   };
@@ -55,8 +102,9 @@ const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
 };
 
 export default PokemonListScreen;
+
 function onPress(arg0: {
-  item: { name: string; url: string };
+  item: RenderItemProps;
 }):
   | ((event: import("react-native").GestureResponderEvent) => void)
   | undefined {

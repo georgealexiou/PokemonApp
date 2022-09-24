@@ -104,57 +104,56 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
         }}
         onPress={onPress({ item })}
       >
-        <ImageBackground
-          source={{
-            uri: "https://imgur.com/nhKrfxH.png",
-          }}
-          resizeMode="cover"
+        <View
           style={{
-            flex: 1,
-            borderRadius: 25,
-            justifyContent: "center",
+            top: -20,
+            backgroundColor: "#343434",
+            borderRadius: 13,
+            alignSelf: "center",
+            width: "50%",
           }}
         >
-          <View
+          <Text
             style={{
-              top: -20,
-              backgroundColor: "#343434",
-              borderRadius: 13,
               alignSelf: "center",
-              width: "50%",
+              fontSize: 33,
+              color: "white",
+              fontWeight: "bold",
             }}
           >
-            <Text
-              style={{
-                alignSelf: "center",
-                fontSize: 33,
-                color: "white",
-                fontWeight: "bold",
-              }}
-            >
-              {item.name}
-            </Text>
-          </View>
-          <Image
-            source={{
-              uri: item.url,
-            }}
-            style={{ width: 320, height: 100, alignSelf: "center", top: -10 }}
-          />
-        </ImageBackground>
+            {item.name}
+          </Text>
+        </View>
+        <Image
+          source={{
+            uri: item.url,
+          }}
+          style={{ width: 320, height: 100, alignSelf: "center", top: -10 }}
+        />
       </Pressable>
     );
   };
 
   return (
-    <Screen name={"Generations"}>
-      <View style={{ width: "100%" }}>
-        <View style={{ alignItems: "center" }}>
-          <SafeAreaView>
-            <FlatList data={regions} renderItem={renderItem} />
-          </SafeAreaView>
+    <Screen name={"Generations"} safeAreaRequired={false}>
+      <ImageBackground
+        source={{
+          uri: "https://imgur.com/iROBToX.png",
+        }}
+        resizeMode="cover"
+        style={{
+          width: "100%",
+          justifyContent: "center",
+        }}
+      >
+        <View style={{ width: "100%" }}>
+          <View style={{ alignItems: "center" }}>
+            <SafeAreaView>
+              <FlatList data={regions} renderItem={renderItem} />
+            </SafeAreaView>
+          </View>
         </View>
-      </View>
+      </ImageBackground>
     </Screen>
   );
 };

@@ -8,6 +8,5 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     width: '100%',
-    paddingHorizontal: theme.spacing(4),
   },
 });
