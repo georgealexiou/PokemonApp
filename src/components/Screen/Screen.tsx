@@ -15,6 +15,7 @@ export type ScreenAreaProps = {
   topSafeArea?: boolean;
   hasNoPadding?: boolean;
   backgroundColor?: string;
+  whiteText?: boolean;
 };
 
 export const Screen: FunctionComponent<ScreenAreaProps> = ({
@@ -25,6 +26,7 @@ export const Screen: FunctionComponent<ScreenAreaProps> = ({
   bottomSafeArea,
   topSafeArea,
   backgroundColor = "white",
+  whiteText,
 }) => {
   const getSafeAreaViewEdges = (): Edge[] => {
     if (safeAreaRequired) {
@@ -43,16 +45,31 @@ export const Screen: FunctionComponent<ScreenAreaProps> = ({
       testID="safeAreaView"
       edges={getSafeAreaViewEdges()}
     >
-      <Text
-        style={{
-          fontSize: 30,
-          alignSelf: "center",
-          position: "absolute",
-          top: 50,
-        }}
-      >
-        {name}
-      </Text>
+      {whiteText ? (
+        <Text
+          style={{
+            fontSize: 30,
+            fontWeight: "bold",
+            color: "white",
+            alignSelf: "center",
+            position: "absolute",
+            top: 50,
+          }}
+        >
+          {name}
+        </Text>
+      ) : (
+        <Text
+          style={{
+            fontSize: 30,
+            alignSelf: "center",
+            position: "absolute",
+            top: 50,
+          }}
+        >
+          {name}
+        </Text>
+      )}
       <View
         style={{
           width: "100%",

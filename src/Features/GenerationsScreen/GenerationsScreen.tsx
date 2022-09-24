@@ -91,11 +91,12 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
           backgroundColor: "white",
           borderRadius: 20,
           height: 140,
-          backgroundColor: "#f0f0f0",
-          borderColor: "#343434",
+          backgroundColor: "#e6e6e6",
+          borderColor: "#444444",
           borderWidth: 2,
           shadowColor: "black",
           shadowOpacity: "0.1",
+          opacity: 0.9,
           shadowRadius: 8,
           shadowOffset: { width: 5, height: 5 },
           width: "90%",
@@ -107,7 +108,7 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
         <View
           style={{
             top: -20,
-            backgroundColor: "#343434",
+            backgroundColor: "#444444",
             borderRadius: 13,
             alignSelf: "center",
             width: "50%",
@@ -128,7 +129,12 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
           source={{
             uri: item.url,
           }}
-          style={{ width: 320, height: 100, alignSelf: "center", top: -10 }}
+          style={{
+            width: 320,
+            height: 100,
+            alignSelf: "center",
+            top: -10,
+          }}
         />
       </Pressable>
     );
@@ -138,7 +144,7 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
     <Screen name={"Generations"} safeAreaRequired={false}>
       <ImageBackground
         source={{
-          uri: "https://imgur.com/iROBToX.png",
+          uri: "https://imgur.com/mEgdDjU.png",
         }}
         resizeMode="cover"
         style={{

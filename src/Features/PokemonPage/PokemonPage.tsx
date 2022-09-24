@@ -5,6 +5,7 @@ import { styles } from "./styles";
 import { Stats } from "../../Components/Molecules/Stats/Stats";
 import { theme } from "../../../themes/darkMode";
 import Screen from "../../Components/Screen/Screen";
+import { Type } from "../../Components/Atoms/Type/Type";
 
 const { width, height } = Dimensions.get("window");
 
@@ -22,6 +23,21 @@ type RenderItemProps = {
 
 export default function PokemonPage({ route, navigation }: any) {
   var item = route.params;
+
+  const BASE_URL =
+    "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails/";
+  const EXTENSION = ".png";
+
+  const { id, name } = route.params;
+
+  const formatNumber = (id: number) => {
+    if (id < 10) {
+      return "00" + id;
+    } else if (id < 100) {
+      return "0" + id;
+    }
+    return "" + id;
+  };
   // const [sprite, setSprite] = useState<string>();
   // const [types, setType] = useState<string[]>();
   // const [ability, setAbility] = useState<string>();
@@ -64,76 +80,72 @@ export default function PokemonPage({ route, navigation }: any) {
       </View>
     );
   }
-  console.log(item.base.Attack);
 
   return (
     <Screen
       name={item.name.english}
       backgroundColor={theme.typePalette.get(item.type[0])}
+      whiteText={true}
     >
-      <View style={styles.topContainer}>
-        {item.type.length < 2 ? (
-          <View style={{ flexDirection: "row" }}>
-            <View style={styles.typeBox}>
-              <Text style={styles.text}>{item.type[0]}</Text>
-            </View>
-          </View>
-        ) : (
-          <View style={{ flexDirection: "row" }}>
-            <View style={styles.typeBox}>
-              <Text style={styles.text}>{item.type[0]}</Text>
-            </View>
-            <View style={styles.typeBox}>
-              <Text style={styles.text}>{item.type[1]}</Text>
-            </View>
-          </View>
-        )}
-      </View>
       {/* Title and Types */}
       <View
         style={{
-          top: 40,
-          backgroundColor: theme.palette.darkCarbon,
+          backgroundColor: "white",
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
+          width: "100%",
+          height: "100%",
+          top: 140,
         }}
       >
-        <View>
-          {/* <View style={{ alignItems: "center" }}>
-              <Image
-                style={styles.pokemonImg}
-                source={{
-                  uri: sprite,
-                }}
-              />
-            </View> */}
-
-          {/* <View style={styles.borderTop}>
-              <View
-                style={{
-                  marginTop: 10,
-                  flexDirection: "row",
-                  marginBottom: 10,
-                }}
-              >
-                <View style={{ marginRight: 10 }}>
-                  <Text style={styles.boldTextColor}>Pokedex Entry</Text>
-                  <Text style={styles.boldTextColor}>Ability </Text>
+        <View style={{ top: -120 }}>
+          <Image
+            source={{
+              uri: BASE_URL + formatNumber(item.id) + EXTENSION,
+            }}
+            style={{
+              width: 200,
+              height: 200,
+              alignSelf: "center",
+              marginBottom: 20,
+            }}
+          />
+          <View>
+            <View style={{ alignSelf: "center" }}>
+              {item.type.length < 2 ? (
+                <View style={{ flexDirection: "row" }}>
+                  <Type type={item.type[0]}></Type>
                 </View>
-                <View>
-                  <Text style={styles.textColor}>{id}</Text>
-                  <Text style={styles.textColor}>{ability}</Text>
+              ) : (
+                <View style={{ flexDirection: "row" }}>
+                  <Type type={item.type[0]}></Type>
+                  <Type type={item.type[1]}></Type>
                 </View>
-              </View>
-            </View> */}
-          {/* <Stats
-              hp={item.base[0].base_stat}
-              attack={item.base[1].base_stat}
-              defence={item.base[2].base_stat}
-              spAttack={item.base[3].base_stat}
-              spDefence={item.base[4].base_stat}
-              speed={item.base[5].base_stat}
-            ></Stats> */}
+              )}
+            </View>
+            <View
+              style={{
+                shadowColor: "black",
+                shadowOpacity: "0.2",
+                shadowRadius: 9,
+                shadowOffset: { height: 5 },
+                marginTop: 20,
+                margin: 10,
+                borderRadius: 20,
+                backgroundColor: "white",
+              }}
+            >
+              <Stats
+                hp={item.base.HP}
+                attack={item.base.Attack}
+                defence={item.base.Defense}
+                spAttack={item.base.SpecialAttack}
+                spDefence={item.base.SpecialDefense}
+                speed={item.base.Speed}
+                color={theme.typePalette.get(item.type[0])}
+              ></Stats>
+            </View>
+          </View>
         </View>
       </View>
     </Screen>
