@@ -10,9 +10,8 @@ export const styles = StyleSheet.create({
       justifyContent: "center",
     },
     tinyLogo: {
-      width: width * 0.5,
-      height: 50,
-      margin: 8,
+      flex:1,
+      height: 80,
     },
     buttonStyle: {
       alignItems: "center",

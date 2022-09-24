@@ -7,7 +7,10 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ImageBackground,
+  Pressable,
 } from "react-native";
+import { theme } from "../../../themes/darkMode";
+import Screen from "../../Components/Screen/Screen";
 import { styles } from "./styles";
 
 const image = {
@@ -18,48 +21,48 @@ const regions = [
   {
     id: 1,
     name: "Kanto",
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4NQWVe_H0TaB9bh6ENOM66tn8p5kiSBvoqGKNkdJZa1KgTk6MZUJExUxAxk3eoZiU_Q&usqp=CAU",
+    url: "https://imgur.com/K4038w2.png",
   },
   {
     id: 2,
     name: "Johto",
-    url: "https://www.seekpng.com/png/full/353-3536819_heart-gold-soul-silver-logos-pokemon-heart-gold.png",
+    url: "https://imgur.com/sn2A271.png",
   },
   {
     id: 3,
     name: "Hoenn",
-    url: "https://static.wikia.nocookie.net/nintendo/images/e/e7/Pokemon-Omega-Ruby-and-Alpha-Sapphire-logos-640x208.png/revision/latest?cb=20170626120736&path-prefix=en",
+    url: "https://imgur.com/MF6hag6.png",
   },
   {
     id: 4,
     name: "Sinnoh",
-    url: "https://static.wikia.nocookie.net/logopedia/images/5/56/PokemonBDSP.png/revision/latest?cb=20210226211101",
+    url: "https://imgur.com/bPHEKht.png",
   },
   {
     id: 5,
     name: "Unova",
-    url: "https://pokejungle.net/wp-content/uploads/2012/10/black-2-white-2-logo.png",
+    url: "https://imgur.com/CH9YUbl.png",
   },
   {
     id: 6,
     name: "Kalos",
-    url: "https://assets.vg247.com/current//2013/08/20130812_pokemon_x__y.jpg",
+    url: "https://imgur.com/HXR8Hr3.png",
   },
   {
     id: 7,
     name: "Alola",
-    url: "https://www.slashgear.com/wp-content/uploads/2017/06/ultra-sun-ultra-moon-980x420.jpg",
+    url: "https://imgur.com/9DiuTnm.png",
   },
-  {
-    id: 8,
-    name: "Galar",
-    url: "https://preview.redd.it/h9pnmm3wlaj21.jpg?width=1280&format=pjpg&auto=webp&s=d109c8fca199198c043b2971de86292c47e4698d",
-  },
-  {
-    id: 9,
-    name: "Paldea",
-    url: "https://i0.wp.com/gaming-age.com/wp-content/uploads/2022/02/pokemon_violet_scarlet_logo.png?resize=645%2C163&ssl=1",
-  },
+  // {
+  //   id: 8,
+  //   name: "Galar",
+  //   url: "https://imgur.com/QZUmPvH.png",
+  // },
+  // {
+  //   id: 9,
+  //   name: "Paldea",
+  //   url: "https://i0.wp.com/gaming-age.com/wp-content/uploads/2022/02/pokemon_violet_scarlet_logo.png?resize=645%2C163&ssl=1",
+  // },
 ];
 
 type RenderItemProps = {
@@ -70,42 +73,92 @@ type RenderItemProps = {
   };
 };
 
-export default function GenerationsScreen({ navigation }: any) {
+type GenerationScreenProps = {
+  navigation: any;
+};
+
+export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
+  navigation,
+}) => {
   const renderItem = ({ item }: any) => {
     const onPress = (arg: RenderItemProps) => () => {
       navigation.navigate("PokemonListScreen", item);
     };
 
     return (
-      <View>
-        <TouchableOpacity
-          style={styles.buttonStyle}
-          onPress={onPress({ item })}
-        >
-          <Image
-            source={{
-              uri: item.url,
-            }}
-            style={styles.tinyLogo}
-          />
-        </TouchableOpacity>
-      </View>
+      <Pressable
+        style={{
+          backgroundColor: "white",
+          borderRadius: 8,
+          height: 100,
+          shadowColor: "black",
+          shadowOpacity: "0.3",
+          shadowRadius: 4,
+          shadowOffset: { width: 2, height: 2 },
+          width: 300,
+          margin: 15,
+        }}
+        onPress={onPress({ item })}
+      >
+        <View>
+          <Text
+            style={{ alignSelf: "center", fontSize: 20, fontWeight: "bold" }}
+          >
+            {item.name}
+          </Text>
+        </View>
+        <Image
+          source={{
+            uri: item.url,
+          }}
+          style={{ width: 320, height: 100 }}
+        />
+      </Pressable>
+      // <Pressable
+      //   style={{
+      //     backgroundColor: theme.palette.carbon,
+      //     borderRadius: 12,
+      //     margin: 10,
+      //     width: "45%",
+      //   }}
+      //   onPress={onPress({ item })}
+      // >
+      //   <View
+      //     style={{
+      //       backgroundColor: theme.palette.white,
+      //       borderRadius: 12,
+      //       opacity: 0.9,
+      //       width: "100%",
+      //       height: 80,
+      //     }}
+      //   >
+      //     <Image
+      //       source={{
+      //         uri: item.url,
+      //       }}
+      //       style={styles.tinyLogo}
+      //     />
+      //   </View>
+      //   <View style={{ alignItems: "center" }}>
+      //     <Text style={{ fontSize: 20, color: theme.palette.ghost }}>
+      //       {item.name}
+      //     </Text>
+      //   </View>
+      // </Pressable>
     );
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+    <Screen name={"Generations"}>
+      <View style={{ width: "100%" }}>
         <View style={{ alignItems: "center" }}>
           <SafeAreaView>
-            <FlatList
-              data={regions}
-              renderItem={renderItem}
-              ItemSeparatorComponent={() => <Text> </Text>}
-            />
+            <FlatList data={regions} renderItem={renderItem} />
           </SafeAreaView>
         </View>
-      </ImageBackground>
-    </View>
+      </View>
+    </Screen>
   );
-}
+};
+
+export default GenerationsScreen;
