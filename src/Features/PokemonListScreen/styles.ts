@@ -17,15 +17,22 @@ export const styles = StyleSheet.create({
     height: 100,
   },
   pressableStyle: {
+    backgroundColor: "white",
+    borderRadius: 20,
+    height: 120,
+    // backgroundColor: "#FBFBFB",
+    borderColor: "#c1c1c1",
+    borderWidth: 2,
+    shadowColor: "black",
+    shadowOpacity: "0.03",
+    shadowRadius: 8,
+    shadowOffset: { width: 5, height: 5 },
     width: "47%",
-    height: 80,
-    borderRadius: 12,
-    backgroundColor: theme.palette.carbon,
-    margin: 7,
-    alignItems: "center",
+    marginTop: 10,
+    margin: 5,
   },
   text: {
-    color: theme.palette.ghost,
+    color: "black",
     fontSize: 20,
   }
 });

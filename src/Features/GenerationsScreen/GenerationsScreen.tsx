@@ -89,62 +89,60 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
       <Pressable
         style={{
           backgroundColor: "white",
-          borderRadius: 8,
-          height: 100,
+          borderRadius: 20,
+          height: 140,
+          backgroundColor: "#f0f0f0",
+          borderColor: "#343434",
+          borderWidth: 2,
           shadowColor: "black",
-          shadowOpacity: "0.3",
-          shadowRadius: 4,
-          shadowOffset: { width: 2, height: 2 },
-          width: 300,
+          shadowOpacity: "0.1",
+          shadowRadius: 8,
+          shadowOffset: { width: 5, height: 5 },
+          width: "90%",
+          marginTop: 30,
           margin: 15,
         }}
         onPress={onPress({ item })}
       >
-        <View>
-          <Text
-            style={{ alignSelf: "center", fontSize: 20, fontWeight: "bold" }}
-          >
-            {item.name}
-          </Text>
-        </View>
-        <Image
+        <ImageBackground
           source={{
-            uri: item.url,
+            uri: "https://imgur.com/nhKrfxH.png",
           }}
-          style={{ width: 320, height: 100 }}
-        />
+          resizeMode="cover"
+          style={{
+            flex: 1,
+            borderRadius: 25,
+            justifyContent: "center",
+          }}
+        >
+          <View
+            style={{
+              top: -20,
+              backgroundColor: "#343434",
+              borderRadius: 13,
+              alignSelf: "center",
+              width: "50%",
+            }}
+          >
+            <Text
+              style={{
+                alignSelf: "center",
+                fontSize: 33,
+                color: "white",
+                fontWeight: "bold",
+              }}
+            >
+              {item.name}
+            </Text>
+          </View>
+          <Image
+            source={{
+              uri: item.url,
+            }}
+            style={{ width: 320, height: 100, alignSelf: "center", top: -10 }}
+          />
+        </ImageBackground>
       </Pressable>
-      // <Pressable
-      //   style={{
-      //     backgroundColor: theme.palette.carbon,
-      //     borderRadius: 12,
-      //     margin: 10,
-      //     width: "45%",
-      //   }}
-      //   onPress={onPress({ item })}
-      // >
-      //   <View
-      //     style={{
-      //       backgroundColor: theme.palette.white,
-      //       borderRadius: 12,
-      //       opacity: 0.9,
-      //       width: "100%",
-      //       height: 80,
-      //     }}
-      //   >
-      //     <Image
-      //       source={{
-      //         uri: item.url,
-      //       }}
-      //       style={styles.tinyLogo}
-      //     />
-      //   </View>
-      //   <View style={{ alignItems: "center" }}>
-      //     <Text style={{ fontSize: 20, color: theme.palette.ghost }}>
-      //       {item.name}
-      //     </Text>
-      //   </View>
-      // </Pressable>
     );
   };
 
