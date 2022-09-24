@@ -128,7 +128,12 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({
           source={{
             uri: item.url,
           }}
-          style={{ width: 320, height: 100, alignSelf: "center", top: -10 }}
+          style={{
+            width: 320,
+            height: 100,
+            alignSelf: "center",
+            top: -10,
+          }}
         />
       </Pressable>
     );

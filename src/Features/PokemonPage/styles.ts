@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tinyLogo: {
-    width: 0,
     height: height / 6,
   },
   pokemonImg: {
@@ -28,18 +27,15 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   typeBox: {
-    backgroundColor: theme.palette.cadet,
-    opacity: 0.7,
     marginRight: 4,
-    marginTop: 8,
-    borderRadius: 7,
-  },
-  topContainer: {
-     margin: 10,
-     flexDirection: 'row',
+    width:100,
+    height: 30,
+    borderRadius: 12,
+    justifyContent:"center",
+    alignItems:"center",
   },
   textColor: {
-    color: theme.palette.ghost,
+    color: "theme.palette.ghost",
   },
   boldTextColor: {
     fontWeight:'bold',
@@ -54,6 +50,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    margin: 3,
+    fontWeight:"bold",
+    fontSize:20,
   }
 });
