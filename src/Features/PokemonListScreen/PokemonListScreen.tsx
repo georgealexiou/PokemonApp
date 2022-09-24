@@ -38,7 +38,6 @@ const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
   const pokemonList = getRegionalDex(id);
   const renderItem: React.FC<RenderItemProps> = ({ item }) => {
     const onPress = (arg: RenderItemProps) => () => {
-      console.log(item);
       navigation.navigate("PokemonPage", item);
     };
 

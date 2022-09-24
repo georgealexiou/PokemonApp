@@ -18,12 +18,12 @@ export enum IconSizes {
 
 export const typeColors = new Map([
     ["Normal", "#D3CBC7"],
-    ["Fire", "#FF6961"],
-    ["Water", "#A0C4FF"],
-    ["Electric", "#FFEE93"],
-    ["Grass", "#ADF7B6"],
+    ["Fire", "#FF4F58"],
+    ["Water", "#698EC6"],
+    ["Electric", "#FFEE2E"],
+    ["Grass", "#94F7A0"],
     ["Ice", "#B0EFEF"],
-    ["Fighting", "#820006"],
+    ["Fighting", "#C3000A"],
     ["Poison", "#9F4FA3"],
     ["Ground", "#DAB894"],
     ["Flying", "#97A2FF"],
@@ -32,7 +32,7 @@ export const typeColors = new Map([
     ["Rock", "#897D6B"],
     ["Ghost", "#9B6DC6"],
     ["Dragon", "#6756BE"],
-    ["Dark", "#444444"],
+    ["Dark", "#7E7E7E"],
     ["Steel", "#C1C7CC"],
     ["Fairy", "#F4C3D7"],
   ]);

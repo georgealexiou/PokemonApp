@@ -81,12 +81,11 @@ export default function PokemonPage({ route, navigation }: any) {
     );
   }
 
-  console.log(item.base);
-
   return (
     <Screen
       name={item.name.english}
       backgroundColor={theme.typePalette.get(item.type[0])}
+      whiteText={true}
     >
       {/* Title and Types */}
       <View
@@ -124,15 +123,28 @@ export default function PokemonPage({ route, navigation }: any) {
                 </View>
               )}
             </View>
-            <Stats
-              hp={item.base.HP}
-              attack={item.base.Attack}
-              defence={item.base.Defense}
-              spAttack={item.base.SpecialAttack}
-              spDefence={item.base.SpecialDefense}
-              speed={item.base.Speed}
-              color={theme.typePalette.get(item.type[0])}
-            ></Stats>
+            <View
+              style={{
+                shadowColor: "black",
+                shadowOpacity: "0.2",
+                shadowRadius: 9,
+                shadowOffset: { height: 5 },
+                marginTop: 20,
+                margin: 10,
+                borderRadius: 20,
+                backgroundColor: "white",
+              }}
+            >
+              <Stats
+                hp={item.base.HP}
+                attack={item.base.Attack}
+                defence={item.base.Defense}
+                spAttack={item.base.SpecialAttack}
+                spDefence={item.base.SpecialDefense}
+                speed={item.base.Speed}
+                color={theme.typePalette.get(item.type[0])}
+              ></Stats>
+            </View>
           </View>
         </View>
       </View>
