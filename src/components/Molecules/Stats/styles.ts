@@ -5,21 +5,17 @@ const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   statsTextColor:{
-    color:'white',
+    color:'black',
     marginTop: 5.5,
     fontWeight: 'bold',
   },
   statsHeadingTextColor:{
-    color:'white',
+    color:'black',
     marginTop: 5.5,
     fontWeight: 'bold',
-    fontSize:20,
+    fontSize:30,
   },
   border: {
-    borderColor: theme.palette.carbon,
-    borderBottomWidth: 3,
-    top: -200,
     margin: 10,
-    marginBottom: 1,
   },
 });
