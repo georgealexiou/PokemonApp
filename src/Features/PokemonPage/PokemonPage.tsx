@@ -1,9 +1,9 @@
 import { Text, View, Dimensions } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Image } from "react-native";
-import { typeColors } from "../../Components/Resource/Resource";
 import { styles } from "./styles";
 import { Stats } from "../../Components/Molecules/Stats/Stats";
+import { theme } from "../../../themes/darkMode";
 
 const { width, height } = Dimensions.get("window");
 
@@ -71,7 +71,7 @@ export default function PokemonPage({ route, navigation }: any) {
     );
   }
   return (
-    <View style={{ backgroundColor: typeColors.get(types[0]) }}>
+    <View style={{ backgroundColor: theme.typePalette.get(types[0]) }}>
       <View>
         <View style={styles.topContainer}>
           <View>
@@ -79,16 +79,16 @@ export default function PokemonPage({ route, navigation }: any) {
             {types[1] === "" ? (
               <View style={{ flexDirection: "row" }}>
                 <View style={styles.typeBox}>
-                  <Text style={{ color: "white", margin: 3 }}>{types[0]}</Text>
+                  <Text style={styles.text}>{types[0]}</Text>
                 </View>
               </View>
             ) : (
               <View style={{ flexDirection: "row" }}>
                 <View style={styles.typeBox}>
-                  <Text style={{ color: "white", margin: 3 }}>{types[0]}</Text>
+                  <Text style={styles.text}>{types[0]}</Text>
                 </View>
                 <View style={styles.typeBox}>
-                  <Text style={{ color: "white", margin: 3 }}>{types[1]}</Text>
+                  <Text style={styles.text}>{types[1]}</Text>
                 </View>
               </View>
             )}
@@ -107,9 +107,9 @@ export default function PokemonPage({ route, navigation }: any) {
       <View
         style={{
           top: 40,
-          backgroundColor: "#2a2a2a",
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
+          backgroundColor: theme.palette.darkCarbon,
+          borderTopLeftRadius: 40,
+          borderTopRightRadius: 40,
         }}
       >
         <View>
@@ -122,16 +122,7 @@ export default function PokemonPage({ route, navigation }: any) {
             />
           </View>
 
-          <View
-            style={{
-              borderColor: "#505050",
-              borderBottomWidth: 3,
-              flexDirection: "row",
-              top: -190,
-              margin: 10,
-              marginBottom: 1,
-            }}
-          >
+          <View style={styles.borderTop}>
             <View
               style={{
                 marginTop: 10,

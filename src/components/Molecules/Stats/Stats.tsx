@@ -20,15 +20,7 @@ export const Stats: React.FC<StatsProps> = ({
   speed,
 }) => {
   return (
-    <View
-      style={{
-        borderColor: "#505050",
-        borderBottomWidth: 3,
-        top: -200,
-        margin: 10,
-        marginBottom: 1,
-      }}
-    >
+    <View style={styles.border}>
       <Text style={styles.statsHeadingTextColor}>Stats</Text>
       <View style={{ marginBottom: 6 }}>
         <StatBar statName={"HP"} stat={hp}></StatBar>

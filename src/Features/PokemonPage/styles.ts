@@ -1,11 +1,11 @@
 import { Dimensions, StyleSheet } from 'react-native';
+import { theme } from '../../../themes/darkMode';
 
 const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 35,
-    color: 'white',
+    color: theme.palette.ghost,
     fontWeight: 'bold',
   },
   separateStats: {
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   typeBox: {
-    backgroundColor: '#9b9b9b',
+    backgroundColor: theme.palette.cadet,
     opacity: 0.7,
     marginRight: 4,
     marginTop: 8,
@@ -39,10 +39,21 @@ export const styles = StyleSheet.create({
      flexDirection: 'row',
   },
   textColor: {
-    color: 'white',
+    color: theme.palette.ghost,
   },
   boldTextColor: {
     fontWeight:'bold',
-    color: 'white',
+    color: theme.palette.ghost,
   },
+  borderTop:{
+    borderColor: theme.palette.carbon,
+    borderBottomWidth: 3,
+    top: -200,
+    margin: 10,
+    marginBottom: 1,
+  },
+  text: {
+    color: "white",
+    margin: 3,
+  }
 });

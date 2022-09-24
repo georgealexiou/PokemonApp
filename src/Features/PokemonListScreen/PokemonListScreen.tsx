@@ -1,10 +1,12 @@
 import React from "react";
-import { View, FlatList, SafeAreaView, Button } from "react-native";
+import { FlatList, SafeAreaView, Pressable, Text, View } from "react-native";
 
 import { RootStackParams } from "../../RootStack/RootStack";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { getRegionalDex } from "../../Components/Resource/Resource";
 import { styles } from "./styles";
+import { theme } from "../../../themes/darkMode";
+import Screen from "../../Components/Screen/Screen";
 
 type RenderItemProps = {
   item: {
@@ -27,19 +29,36 @@ const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
     };
 
     return (
-      <View>
-        <Button title={item.name} onPress={onPress({ item })} />
-      </View>
+      <Pressable style={styles.pressableStyle} onPress={onPress({ item })}>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: theme.palette.ghost,
+            width: "100%",
+            borderRadius: 12,
+          }}
+        ></View>
+        <View>
+          <Text style={styles.text}>{item.name}</Text>
+        </View>
+      </Pressable>
     );
   };
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <FlatList data={pokemonList} renderItem={renderItem} />
+    <Screen name={name}>
+      <SafeAreaView style={styles.container}>
+        <FlatList data={pokemonList} renderItem={renderItem} numColumns={2} />
       </SafeAreaView>
-    </View>
+    </Screen>
   );
 };
 
 export default PokemonListScreen;
+function onPress(arg0: {
+  item: { name: string; url: string };
+}):
+  | ((event: import("react-native").GestureResponderEvent) => void)
+  | undefined {
+  throw new Error("Function not implemented.");
+}

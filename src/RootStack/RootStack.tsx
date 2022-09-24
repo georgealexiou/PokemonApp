@@ -33,8 +33,16 @@ export default function RootStack() {
           component={Main}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="GenerationsScreen" component={GenerationsScreen} />
-        <Stack.Screen name="PokemonListScreen" component={PokemonListScreen} />
+        <Stack.Screen
+          name="GenerationsScreen"
+          component={GenerationsScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PokemonListScreen"
+          component={PokemonListScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="CreditsScreen" component={CreditsScreen} />
         <Stack.Screen name="PokemonPage" component={PokemonPage} />
       </Stack.Navigator>
