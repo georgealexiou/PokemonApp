@@ -53,7 +53,7 @@ export const Screen: FunctionComponent<ScreenAreaProps> = ({
             color: "white",
             alignSelf: "center",
             position: "absolute",
-            top: 53,
+            top: 50,
           }}
         >
           {name}
@@ -64,7 +64,6 @@ export const Screen: FunctionComponent<ScreenAreaProps> = ({
             fontSize: 30,
             alignSelf: "center",
             position: "absolute",
-            fontWeight: "bold",
             top: 50,
           }}
         >
@@ -83,11 +82,7 @@ export const Screen: FunctionComponent<ScreenAreaProps> = ({
           style={{ width: "37%", justifyContent: "flex-end", top: -5 }}
           onPress={onBackButtonPress}
         >
-          {whiteText ? (
-            <Icon name="chevron-left" color="white" size={25} />
-          ) : (
-            <Icon name="chevron-left" color="black" size={25} />
-          )}
+          <Icon name="chevron-left" color="black" size={25} />
         </Pressable>
         <View
           style={{
