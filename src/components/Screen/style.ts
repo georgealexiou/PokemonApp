@@ -1,12 +1,12 @@
-import { theme } from '../../../themes/darkMode';
-import { Dimensions, StyleSheet } from 'react-native';
+import { theme } from "../../../themes/theme";
+import { Dimensions, StyleSheet } from "react-native";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   styledWhiteView: {
     flex: 1,
-    alignItems: 'center',
-    width: '100%',
+    alignItems: "center",
+    width: "100%",
   },
 });
