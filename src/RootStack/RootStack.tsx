@@ -40,7 +40,7 @@ export default function RootStack() {
 
 function Main() {
   return (
-    <Tab.Navigator screenOptions={{ tabBarStyle: { backgroundColor: 'black' } }}>
+    <Tab.Navigator>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
