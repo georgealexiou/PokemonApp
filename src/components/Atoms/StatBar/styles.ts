@@ -1,29 +1,29 @@
-import { Dimensions, StyleSheet } from 'react-native';
-import { theme } from '../../../../themes/darkMode';
+import { Dimensions, StyleSheet } from "react-native";
+import { theme } from "../../../../themes/theme";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   textColor: {
-    color: 'black',
+    color: "black",
   },
   boldTextColor: {
-    fontWeight:'bold',
-    color: 'black',
+    fontWeight: "bold",
+    color: "black",
   },
-  statsTextLabel:{
-    color:'black',
-    fontWeight: 'bold',
-    fontSize:17,
+  statsTextLabel: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 17,
   },
-  statsTextNumber:{
-    color:'black',
-    fontSize:17,
+  statsTextNumber: {
+    color: "black",
+    fontSize: 17,
   },
-  statsHeadingTextColor:{
-    color:'black',
-    fontWeight: 'bold',
-    fontSize:30,
+  statsHeadingTextColor: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 30,
   },
   border: {
     borderColor: theme.palette.carbon,

@@ -1,13 +1,13 @@
-import { Dimensions, StyleSheet } from 'react-native';
-import { theme } from '../../../themes/darkMode';
+import { Dimensions, StyleSheet } from "react-native";
+import { theme } from "../../../themes/theme";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   tinyLogo: {
     height: height / 6,
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   titleText: {
     fontSize: 35,
     color: theme.palette.ghost,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   separateStats: {
     width,
@@ -28,20 +28,20 @@ export const styles = StyleSheet.create({
   },
   typeBox: {
     marginRight: 4,
-    width:100,
+    width: 100,
     height: 30,
     borderRadius: 12,
-    justifyContent:"center",
-    alignItems:"center",
+    justifyContent: "center",
+    alignItems: "center",
   },
   textColor: {
     color: "theme.palette.ghost",
   },
   boldTextColor: {
-    fontWeight:'bold',
+    fontWeight: "bold",
     color: theme.palette.ghost,
   },
-  borderTop:{
+  borderTop: {
     borderColor: theme.palette.carbon,
     borderBottomWidth: 3,
     top: -200,
@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontWeight:"bold",
-    fontSize:20,
-  }
+    fontWeight: "bold",
+    fontSize: 20,
+  },
 });

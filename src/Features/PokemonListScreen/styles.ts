@@ -1,16 +1,15 @@
-import { Dimensions, StyleSheet } from "react-native";
-import { theme } from "../../../themes/darkMode";
+import { Dimensions, StyleSheet } from 'react-native';
+import { theme } from '../../../themes/theme';
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height:'100%',
+    height: '100%',
     justifyContent: 'center',
-    backgroundColor: "white",
-    alignContent:'center',
-
+    backgroundColor: 'white',
+    alignContent: 'center',
   },
   imageThumbnail: {
     justifyContent: 'center',
@@ -18,23 +17,23 @@ export const styles = StyleSheet.create({
     height: 100,
   },
   pressableStyle: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     height: 120,
     // borderColor: "#c1c1c1",
     // borderWidth: 2,
-    shadowColor: "black",
-    shadowOpacity: "0.2",
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
     shadowRadius: 3,
     shadowOffset: { width: 5, height: 5 },
-    width: "47%",
+    width: '47%',
     marginTop: 20,
     margin: 5,
   },
   text: {
-    color: "white",
+    color: 'white',
     fontSize: 20,
-    fontWeight:'bold',
-    alignSelf:'center',
-  }
+    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
 });
