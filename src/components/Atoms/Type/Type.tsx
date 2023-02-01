@@ -1,16 +1,15 @@
-import { Dimensions, View, Text } from "react-native";
-import { styles } from "./styles";
-import { theme } from "../../../../themes/theme";
-import { capitalizeFirstLetter } from "../../../helper";
+import { View, Text } from 'react-native';
+import { styles } from './styles';
+import { theme } from '../../../../themes/theme';
+import { PokemonTypes } from '../../../global/types';
 
 type TypeProps = {
-  type: string;
+  type?: PokemonTypes;
   small?: boolean;
 };
 
 export const Type: React.FC<TypeProps> = ({ type, small = false }) => {
   if (!type) return <></>;
-  type = capitalizeFirstLetter(type);
 
   return (
     <>
@@ -19,8 +18,7 @@ export const Type: React.FC<TypeProps> = ({ type, small = false }) => {
           style={{
             ...styles.smallTypeBox,
             backgroundColor: theme.typePalette.get(type),
-          }}
-        >
+          }}>
           <Text style={styles.smallText}>{type}</Text>
         </View>
       ) : (
@@ -28,8 +26,7 @@ export const Type: React.FC<TypeProps> = ({ type, small = false }) => {
           style={{
             ...styles.typeBox,
             backgroundColor: theme.typePalette.get(type),
-          }}
-        >
+          }}>
           <Text style={styles.text}>{type}</Text>
         </View>
       )}
