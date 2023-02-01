@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { Type } from '../../../Components/Atoms/Type/Type';
 import { textStyle } from '../../../Components/Resource/textStyle';
-import { themeColors } from '../../../Components/Resource/Theme';
 import axios from 'axios';
 import { capitalizeFirstLetter } from '../../../helper';
 import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
+import { theme } from '../../../../themes/theme';
 
 type FeaturedPokemonProps = {
   id: number;
@@ -43,47 +43,53 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
   return (
     <View
       style={{
-        backgroundColor: themeColors.WHITE,
+        backgroundColor: theme.palette.white,
         width: '100%',
         height: 200,
         borderRadius: 12,
-        flexDirection: 'row',
-        paddingTop: 15,
-        paddingLeft: 15,
-        paddingBottom: 15,
-        paddingRight: 5,
         shadowColor: 'black',
         shadowRadius: 8,
         shadowOpacity: 0.2,
         shadowOffset: { width: -5, height: 5 },
       }}>
-      <View>
-        <Text style={textStyle.caption}>Featured Pokemon</Text>
-        <Spacer.Column numberOfSpaces={1} />
-        <Text style={textStyle.h1}>{`#${formatNumber(id)} ${capitalizeFirstLetter(name)}`}</Text>
-        <Spacer.Flex />
-        <View style={{ flexDirection: 'row' }}>
-          <Type type={types[0]} small={true} />
-          <Type type={types[1]} small={true} />
-        </View>
-      </View>
       <View
         style={{
-          flex: 1,
+          width: '100%',
+          height: '100%',
+          paddingTop: 15,
+          paddingLeft: 15,
+          paddingBottom: 15,
           flexDirection: 'row',
-          justifyContent: 'flex-end',
-          alignContent: 'flex-end',
+          paddingRight: 5,
         }}>
-        <Image
-          source={{
-            uri: BASE_URL + formatNumber(id) + EXTENSION,
-          }}
+        <View>
+          <Text style={textStyle.caption}>Featured Pokemon</Text>
+          <Spacer.Column numberOfSpaces={1} />
+          <Text style={textStyle.h1}>{`#${formatNumber(id)} ${capitalizeFirstLetter(name)}`}</Text>
+          <Spacer.Flex />
+          <View style={{ flexDirection: 'row' }}>
+            <Type type={types[0]} small={true} />
+            <Type type={types[1]} small={true} />
+          </View>
+        </View>
+        <View
           style={{
-            width: 170,
-            height: 170,
-            resizeMode: 'contain',
-          }}
-        />
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            alignContent: 'flex-end',
+          }}>
+          <Image
+            source={{
+              uri: BASE_URL + formatNumber(id) + EXTENSION,
+            }}
+            style={{
+              width: 170,
+              height: 170,
+              resizeMode: 'contain',
+            }}
+          />
+        </View>
       </View>
     </View>
   );

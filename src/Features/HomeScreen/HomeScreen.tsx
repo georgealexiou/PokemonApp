@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { TouchableOpacity, View, Text, Image, Pressable } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
+import { Pokeball } from '../../assets/svgs';
 import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
 import { textStyle } from '../../Components/Resource/textStyle';
 import { FeaturedPokemon } from './FeaturedPokemon/FeaturedPokemon';
@@ -38,6 +39,9 @@ const HomeScreen = ({ navigation }: any) => {
         </View>
       </View>
       <Spacer.Flex />
+      <View style={{ position: 'absolute', zIndex: -1, height: '100%', justifyContent: 'flex-end', right: -170 }}>
+        <Pokeball />
+      </View>
     </View>
   );
 };
