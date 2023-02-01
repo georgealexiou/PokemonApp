@@ -12,7 +12,7 @@ type TypeProps = {
 };
 
 export const SimplePressable: React.FC<TypeProps> = ({ children, style, onPress }) => (
-  <Pressable onPress={onPress}>
-    <SimpleContainer style={style}>{children}</SimpleContainer>
+  <Pressable onPress={onPress} style={style}>
+    <SimpleContainer style={{ width: '100%', height: '100%' }}>{children}</SimpleContainer>
   </Pressable>
 );
