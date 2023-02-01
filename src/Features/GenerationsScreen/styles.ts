@@ -1,46 +1,21 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native';
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#fff",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    tinyLogo: {
-      flex:1,
-      height: 80,
-    },
-    buttonStyle: {
-      alignItems: "center",
-      backgroundColor: "#ffffff",
-      width: 300,
-      borderRadius: 5,
-      opacity: 0.7,
-      borderColor: "black",
-      borderWidth: 2,
-    },
-    buttonImageIconStyle: {
-      padding: 10,
-      margin: 5,
-      height: 25,
-      width: 25,
-    },
-    buttonIconSeparatorStyle: {
-      backgroundColor: "#fff",
-      width: 1,
-      height: 40,
-    },
-    buttonTextStyle: {
-      color: "#2c363a",
-      fontWeight: "bold",
-      marginBottom: 4,
-      marginLeft: 10,
-    },
-    image: {
-      flex: 1,
-      justifyContent: "center",
-    },
-  });
+  generationContainer: {
+    borderRadius: 20,
+    height: 80,
+    backgroundColor: '#e6e6e6',
+    borderColor: '#444444',
+    borderWidth: 2,
+    shadowColor: 'black',
+    shadowOpacity: 0.1,
+    opacity: 0.9,
+    shadowRadius: 8,
+    shadowOffset: { width: 5, height: 5 },
+    marginTop: 30,
+    margin: 15,
+    width: '100%',
+  },
+});

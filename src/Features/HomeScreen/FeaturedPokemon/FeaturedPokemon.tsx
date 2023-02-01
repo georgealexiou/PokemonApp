@@ -6,30 +6,22 @@ import axios from 'axios';
 import { capitalizeFirstLetter } from '../../../global/helper';
 import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
 import { theme } from '../../../../themes/theme';
-import { PokemonTypes } from '../../../global/types';
+import { Pokemon, PokemonTypes } from '../../../global/types';
+import { SimpleContainer } from '../../../Components/Atoms/SimpleContainer/SimpleContainer';
+import { styles } from './styles';
+import { fetchPokemon } from '../../../global/fetchPokemon';
 
 type FeaturedPokemonProps = {
   id: number;
 };
 
 export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
-  const [name, setName] = useState('');
-  const [types, setTypes] = useState<string[]>([]);
+  const [pokemon, setPokemon] = useState<Pokemon>();
   const BASE_URL = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
   const EXTENSION = '.png';
 
   useEffect(() => {
-    async function getPokemon(id: number) {
-      try {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        setName(response.data.name);
-        setTypes([response.data.types[0].type.name, response.data.types[1]?.type.name]);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    getPokemon(id);
+    fetchPokemon(id, setPokemon);
   });
 
   const formatNumber = (id: number) => {
@@ -42,56 +34,37 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
   };
 
   return (
-    <View
-      style={{
-        backgroundColor: theme.palette.white,
-        width: '100%',
-        height: 200,
-        borderRadius: 12,
-        shadowColor: 'black',
-        shadowRadius: 8,
-        shadowOpacity: 0.2,
-        shadowOffset: { width: -5, height: 5 },
-      }}>
-      <View
-        style={{
-          width: '100%',
-          height: '100%',
-          paddingTop: 15,
-          paddingLeft: 15,
-          paddingBottom: 15,
-          flexDirection: 'row',
-          paddingRight: 5,
-        }}>
-        <View>
-          <Text style={textStyle.caption}>Featured Pokemon</Text>
-          <Spacer.Column numberOfSpaces={1} />
-          <Text style={textStyle.h1}>{`#${formatNumber(id)} ${capitalizeFirstLetter(name)}`}</Text>
-          <Spacer.Flex />
-          <View style={{ flexDirection: 'row' }}>
-            <Type type={capitalizeFirstLetter(types[0]) as PokemonTypes | undefined} small={true} />
-            <Type type={capitalizeFirstLetter(types[1]) as PokemonTypes | undefined} small={true} />
-          </View>
-        </View>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'flex-end',
-            alignContent: 'flex-end',
-          }}>
-          <Image
-            source={{
-              uri: BASE_URL + formatNumber(id) + EXTENSION,
-            }}
-            style={{
-              width: 170,
-              height: 170,
-              resizeMode: 'contain',
-            }}
-          />
-        </View>
+    <SimpleContainer style={styles.simpleContainer}>
+      <View style={styles.innerContainer}>
+        {pokemon && (
+          <>
+            <View>
+              <Text style={textStyle.caption}>Featured Pokemon</Text>
+              <Spacer.Column numberOfSpaces={1} />
+              <Text style={textStyle.h1}>{`#${formatNumber(id)} ${capitalizeFirstLetter(pokemon.name)}`}</Text>
+              <Spacer.Flex />
+              <View style={{ flexDirection: 'row' }}>
+                <Type
+                  type={capitalizeFirstLetter(pokemon.types[0].type.name) as PokemonTypes | undefined}
+                  small={true}
+                />
+                <Type
+                  type={capitalizeFirstLetter(pokemon.types[1]?.type.name) as PokemonTypes | undefined}
+                  small={true}
+                />
+              </View>
+            </View>
+            <View style={styles.imageContainer}>
+              <Image
+                source={{
+                  uri: BASE_URL + formatNumber(id) + EXTENSION,
+                }}
+                style={styles.imageStyle}
+              />
+            </View>
+          </>
+        )}
       </View>
-    </View>
+    </SimpleContainer>
   );
 };
