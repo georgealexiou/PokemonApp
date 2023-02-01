@@ -8,7 +8,8 @@ import GenerationsScreen from '../Features/GenerationsScreen/GenerationsScreen';
 import HomeScreen from '../Features/HomeScreen/HomeScreen';
 import CreditsScreen from '../Features/CreditsScreen/CreditsScreen';
 import SettingsScreen from '../Features/SettingsScreen/SettingsScreen';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { styles } from './styles';
+import { TabOption } from './components/TabOption';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -40,13 +41,25 @@ export default function RootStack() {
 
 function Main() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: styles.shadow,
+      }}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
           headerShown: false,
-          tabBarIcon: () => <Icon name="home" color="gray" size={25} />,
+          tabBarIcon: ({ focused }) => <TabOption focused={focused} icon="home" />,
+        }}
+      />
+      <Tab.Screen
+        name="Search"
+        component={CreditsScreen}
+        options={{
+          headerShown: true,
+          tabBarIcon: () => <TabOption icon="search" isSearch />,
         }}
       />
       <Tab.Screen
@@ -54,7 +67,7 @@ function Main() {
         component={SettingsScreen}
         options={{
           headerShown: true,
-          tabBarIcon: () => <Icon name="gear" color="gray" size={25} />,
+          tabBarIcon: ({ focused }) => <TabOption focused={focused} icon="gear" />,
         }}
       />
     </Tab.Navigator>

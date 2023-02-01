@@ -21,6 +21,7 @@ const HomeScreen = ({ navigation }: any) => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
+        <Spacer.Column numberOfSpaces={10} />
         <Text style={{ ...textStyle.h1, textAlign: 'left', width: '100%' }}>Welcome to your Pokedex!</Text>
         <Spacer.Column numberOfSpaces={5} />
         <FeaturedPokemon id={Math.floor(Math.random() * 1008)}></FeaturedPokemon>
@@ -32,10 +33,18 @@ const HomeScreen = ({ navigation }: any) => {
               <Text style={textStyle.h2}>Pokédex</Text>
             </View>
           </Pressable>
-          <Spacer.Row numberOfSpaces={7} />
+          <Spacer.Flex />
           <Pressable style={styles.button} onPress={() => navigation.navigate('Credits')}>
             <Text style={textStyle.h2}>Credits</Text>
           </Pressable>
+        </View>
+        <View style={{ flexDirection: 'row' }}>
+          <Pressable style={styles.button}>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={textStyle.h2}>Favourites</Text>
+            </View>
+          </Pressable>
+          <Spacer.Flex />
         </View>
       </View>
       <Spacer.Flex />
@@ -47,3 +56,6 @@ const HomeScreen = ({ navigation }: any) => {
 };
 
 export default HomeScreen;
+function typeOf(arg0: string): any {
+  throw new Error('Function not implemented.');
+}

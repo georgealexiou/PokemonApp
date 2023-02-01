@@ -1,4 +1,5 @@
 import { Dimensions as NativeDimensions } from 'react-native';
+import { PokemonTypes } from '../src/global/types';
 
 const SCREEN_WIDTH = NativeDimensions.get('window').width;
 const SCREEN_HEIGHT = NativeDimensions.get('window').height;
@@ -17,24 +18,24 @@ export enum IconSizes {
 }
 
 export const typeColors = new Map([
-  ['Normal', '#D3CBC7'],
-  ['Fire', '#FF4F58'],
-  ['Water', '#86B4FF'],
-  ['Electric', '#FFF261'],
-  ['Grass', '#49D393'],
-  ['Ice', '#B0EFEF'],
-  ['Fighting', '#A12718'],
-  ['Poison', '#9F4FA3'],
-  ['Ground', '#DAB894'],
-  ['Flying', '#97A2FF'],
-  ['Psychic', '#FF8FAB'],
-  ['Bug', '#E0E293'],
-  ['Rock', '#897D6B'],
-  ['Ghost', '#9B6DC6'],
-  ['Dragon', '#6756BE'],
-  ['Dark', '#4D4D4D'],
-  ['Steel', '#C1C7CC'],
-  ['Fairy', '#F4C3D7'],
+  [PokemonTypes.NORMAL, '#D3CBC7'],
+  [PokemonTypes.FIRE, '#FF4F58'],
+  [PokemonTypes.WATER, '#86B4FF'],
+  [PokemonTypes.ELECTRIC, '#FFF261'],
+  [PokemonTypes.GRASS, '#49D393'],
+  [PokemonTypes.ICE, '#B0EFEF'],
+  [PokemonTypes.FIGHTING, '#A12718'],
+  [PokemonTypes.POISON, '#9F4FA3'],
+  [PokemonTypes.GROUND, '#DAB894'],
+  [PokemonTypes.FLYING, '#97A2FF'],
+  [PokemonTypes.PSYCHIC, '#FF8FAB'],
+  [PokemonTypes.BUG, '#E0E293'],
+  [PokemonTypes.ROCK, '#897D6B'],
+  [PokemonTypes.GHOST, '#9B6DC6'],
+  [PokemonTypes.DRAGON, '#6756BE'],
+  [PokemonTypes.DARK, '#4D4D4D'],
+  [PokemonTypes.STEEL, '#C1C7CC'],
+  [PokemonTypes.FAIRY, '#F4C3D7'],
 ]);
 
 export enum COLORS {

@@ -3,9 +3,10 @@ import { Image, Text, View } from 'react-native';
 import { Type } from '../../../Components/Atoms/Type/Type';
 import { textStyle } from '../../../Components/Resource/textStyle';
 import axios from 'axios';
-import { capitalizeFirstLetter } from '../../../helper';
+import { capitalizeFirstLetter } from '../../../global/helper';
 import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
 import { theme } from '../../../../themes/theme';
+import { PokemonTypes } from '../../../global/types';
 
 type FeaturedPokemonProps = {
   id: number;
@@ -68,8 +69,8 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
           <Text style={textStyle.h1}>{`#${formatNumber(id)} ${capitalizeFirstLetter(name)}`}</Text>
           <Spacer.Flex />
           <View style={{ flexDirection: 'row' }}>
-            <Type type={types[0]} small={true} />
-            <Type type={types[1]} small={true} />
+            <Type type={capitalizeFirstLetter(types[0]) as PokemonTypes | undefined} small={true} />
+            <Type type={capitalizeFirstLetter(types[1]) as PokemonTypes | undefined} small={true} />
           </View>
         </View>
         <View
