@@ -46,7 +46,7 @@ export default function PokemonPage({ route, navigation }: any) {
   }
 
   return (
-    <Screen name={item.name.english} backgroundColor={theme.typePalette.get(item.type[0])} whiteText={true}>
+    <Screen name={item.name.english} backgroundColor={theme.typePaletteBackground.get(item.type[0])} whiteText={true}>
       {/* Title and Types */}
       <View
         style={{

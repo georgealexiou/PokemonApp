@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { Type } from '../../../Components/Atoms/Type/Type';
 import { textStyle } from '../../../Components/Resource/textStyle';
-import { capitalizeFirstLetter } from '../../../global/helper';
+import { capitalizeFirstLetter, formatNumber, formatNumberForList } from '../../../helper';
 import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
 import { Pokemon, PokemonTypes } from '../../../global/types';
 import { SimpleContainer } from '../../../Components/Atoms/SimpleContainer/SimpleContainer';
 import { styles } from './styles';
 import { fetchPokemon } from '../../../global/fetchPokemon';
+import { PokemonImage } from '../../../Components/Atoms/PokemonImage/PokemonImage';
 
 type FeaturedPokemonProps = {
   id: number;
@@ -15,21 +16,10 @@ type FeaturedPokemonProps = {
 
 export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
   const [pokemon, setPokemon] = useState<Pokemon>();
-  const BASE_URL = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
-  const EXTENSION = '.png';
 
   useEffect(() => {
     fetchPokemon(id, setPokemon);
   });
-
-  const formatNumber = (id: number) => {
-    if (id < 10) {
-      return '00' + id;
-    } else if (id < 100) {
-      return '0' + id;
-    }
-    return '' + id;
-  };
 
   return (
     <SimpleContainer style={styles.simpleContainer}>
@@ -39,7 +29,7 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
             <View>
               <Text style={textStyle.caption}>Featured Pokemon</Text>
               <Spacer.Column numberOfSpaces={1} />
-              <Text style={textStyle.h1}>{`#${formatNumber(id)} ${capitalizeFirstLetter(pokemon.name)}`}</Text>
+              <Text style={textStyle.h1}>{`#${formatNumberForList(id)} ${capitalizeFirstLetter(pokemon.name)}`}</Text>
               <Spacer.Flex />
               <View style={{ flexDirection: 'row' }}>
                 <Type
@@ -53,12 +43,7 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
               </View>
             </View>
             <View style={styles.imageContainer}>
-              <Image
-                source={{
-                  uri: BASE_URL + formatNumber(id) + EXTENSION,
-                }}
-                style={styles.imageStyle}
-              />
+              <PokemonImage style={styles.imageStyle} id={id} />
             </View>
           </>
         )}

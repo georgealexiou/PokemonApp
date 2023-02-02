@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
-import { FlatList, SafeAreaView, Pressable, Text, View, Image } from 'react-native';
-
+import React from 'react';
+import { FlatList, SafeAreaView, View } from 'react-native';
 import { RootStackParams } from '../../RootStack/RootStack';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { getRegionalDex } from '../../Components/Resource/Resource';
 import { styles } from './styles';
 import Screen from '../../Components/Screen/Screen';
-import { theme } from '../../../themes/theme';
-import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
+import { PokemonPreview } from '../../Components/Molecules/PokemonPreview/PokemonPreview';
+import { Pokeball } from '../../assets/svgs';
 
 type RenderItemProps = {
   item: {
@@ -40,48 +39,14 @@ const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
       return '' + id;
     };
 
-    return (
-      <Pressable
-        style={{
-          ...styles.pressableStyle,
-          backgroundColor: theme.typePalette.get(item.type[0]),
-        }}
-        onPress={onPress({ item })}>
-        <View
-          style={{
-            top: -10,
-            backgroundColor: '#343434',
-            borderRadius: 9,
-            alignSelf: 'center',
-            width: '50%',
-          }}>
-          <Text
-            style={{
-              alignSelf: 'center',
-              fontSize: 20,
-              color: 'white',
-              fontWeight: 'bold',
-            }}>
-            {'#' + formatNumber(item.id)}
-          </Text>
-        </View>
-        <View style={{ justifyContent: 'center' }}>
-          <Spacer.Column numberOfSpaces={1} />
-          <Image
-            source={{
-              uri: BASE_URL + formatNumber(item.id) + EXTENSION,
-            }}
-            style={{ width: 60, height: 60, alignSelf: 'center', top: -10, resizeMode: 'contain' }}
-          />
-        </View>
-        <Spacer.Flex />
-        <Text style={{ ...styles.text, top: -15 }}>{item.name.english}</Text>
-      </Pressable>
-    );
+    return <PokemonPreview item={item} />;
   };
 
   return (
     <Screen name={name}>
+      <View style={{ position: 'absolute', zIndex: -1, height: '100%', justifyContent: 'flex-start', right: -100 }}>
+        <Pokeball />
+      </View>
       <SafeAreaView style={styles.container}>
         <FlatList data={pokemonList} renderItem={renderItem} numColumns={2} />
       </SafeAreaView>

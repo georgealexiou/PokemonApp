@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { capitalizeFirstLetter } from './helper';
 import { Pokemon } from './types';
 
 export const fetchPokemon = async (

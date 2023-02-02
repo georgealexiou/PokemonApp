@@ -3,26 +3,13 @@ import { Dimensions, StyleSheet } from 'react-native';
 const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: '100%',
-    justifyContent: 'center',
-    alignContent: 'center',
-    margin: 20,
-  },
-  imageThumbnail: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 100,
-  },
   pressableStyle: {
     backgroundColor: 'white',
-    borderRadius: 20,
+    borderRadius: 12,
     height: 120,
-    shadowColor: 'black',
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.5,
     shadowRadius: 3,
-    shadowOffset: { width: 5, height: 5 },
+    shadowOffset: { width: 0, height: 7 },
     width: '47%',
     marginTop: 20,
     margin: 5,
