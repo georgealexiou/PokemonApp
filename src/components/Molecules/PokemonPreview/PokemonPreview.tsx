@@ -1,54 +1,61 @@
 import { View, Text, Pressable } from 'react-native';
 import { theme } from '../../../../themes/theme';
-import { capitalizeFirstLetter, formatNumber, formatNumberForList } from '../../../helper';
+import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
 import { PokemonImage } from '../../Atoms/PokemonImage/PokemonImage';
-import { SimplePressable } from '../../Atoms/SimplePressable/SimplePressable';
 import { textStyle } from '../../Resource/textStyle';
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Spacer } from '../../Atoms/Spacer.tsx/Spacer';
-import { PokemonTypes } from '../../../global/types';
-import { Type } from '../../Atoms/Type/Type';
+import { Pokemon, PokemonTypes } from '../../../global/types';
 import { styles } from './styles';
+import axios from 'axios';
 
 type PokemonPreviewProps = {
-  item: any;
+  id: number;
+  onPress?: () => void;
 };
 
-export const PokemonPreview: React.FC<PokemonPreviewProps> = ({ item }) => {
+export const PokemonPreview: React.FC<PokemonPreviewProps> = ({ id, onPress }) => {
+  const [pokemon, setPokemon] = useState<Pokemon>();
+  useEffect(() => {
+    if (pokemon) return;
+    fetchPokemon;
+  });
+
+  const fetchPokemon = useMemo(async () => {
+    try {
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      if (!setPokemon) return response.data;
+      else setPokemon(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
   return (
-    <Pressable
-      style={{
-        ...styles.pressableStyle,
-        shadowColor: theme.typePaletteBackground.get(item.type[0]),
-        backgroundColor: theme.typePaletteBackground.get(item.type[0]),
-        padding: 10,
-      }}>
-      <View
-        style={{
-          position: 'absolute',
-          justifyContent: 'center',
-        }}>
-        <Text
+    <>
+      {pokemon && (
+        <Pressable
           style={{
-            fontSize: 55,
-            color: 'white',
-            fontFamily: 'Helvetica',
-            fontWeight: 'bold',
-            opacity: 0.3,
-            top: 60,
-            left: 5,
-            width: 160,
-          }}>
-          {`#${formatNumberForList(item.id)}`}
-        </Text>
-      </View>
-      <View style={{ alignItems: 'center' }}>
-        <Text style={{ ...textStyle.h1, color: theme.palette.white }}>{item.name.english}</Text>
-        <Spacer.Column numberOfSpaces={1} />
-        <View style={{ justifyContent: 'center', alignItems: 'center', width: '60%' }}>
-          <PokemonImage style={{ height: 80, width: 80, resizeMode: 'contain' }} id={item.id} />
-        </View>
-      </View>
-    </Pressable>
+            ...styles.pressableStyle,
+            shadowColor: theme.typePaletteBackground.get(
+              capitalizeFirstLetter(pokemon.types[0].type.name) as PokemonTypes
+            ),
+            backgroundColor: theme.typePaletteBackground.get(
+              capitalizeFirstLetter(pokemon.types[0].type.name) as PokemonTypes
+            ),
+          }}
+          onPress={onPress}>
+          <View style={styles.numberContainer}>
+            <Text style={styles.numberStyle}>{`#${formatNumberForList(pokemon.id)}`}</Text>
+          </View>
+          <View style={{ alignItems: 'center' }}>
+            <Text style={{ ...textStyle.h1, color: theme.palette.white }}>{capitalizeFirstLetter(pokemon.name)}</Text>
+            <Spacer.Column numberOfSpaces={1} />
+            <View style={styles.imageContainer}>
+              <PokemonImage style={styles.imageStyle} id={pokemon.id} />
+            </View>
+          </View>
+        </Pressable>
+      )}
+    </>
   );
 };

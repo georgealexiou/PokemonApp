@@ -11,13 +11,23 @@ export const styles = StyleSheet.create({
     shadowRadius: 3,
     shadowOffset: { width: 0, height: 7 },
     width: '47%',
-    marginTop: 20,
     margin: 5,
+    padding: 10,
   },
-  text: {
+  numberStyle: {
+    fontSize: 55,
     color: 'white',
-    fontSize: 20,
+    fontFamily: 'Helvetica',
     fontWeight: 'bold',
-    alignSelf: 'center',
+    opacity: 0.3,
+    top: 60,
+    left: 5,
+    width: 160,
+  },
+  imageStyle: { height: 80, width: 80, resizeMode: 'contain' },
+  imageContainer: { justifyContent: 'center', alignItems: 'center', width: '60%' },
+  numberContainer: {
+    position: 'absolute',
+    justifyContent: 'center',
   },
 });
