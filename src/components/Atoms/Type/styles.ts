@@ -1,34 +1,32 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native';
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   text: {
-    color: "white",
-    fontWeight: "bold",
-    fontFamily: "Helvetica",
-    fontSize: 20,
+    color: 'white',
+    fontFamily: 'Helvetica',
+    fontSize: 18,
   },
   smallText: {
-    color: "white",
-    fontWeight: "bold",
-    fontFamily: "Helvetica",
+    color: 'white',
+    fontFamily: 'Helvetica',
     fontSize: 15,
   },
   typeBox: {
     marginRight: 4,
-    borderRadius: 12,
-    width: 100,
-    height: 30,
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: 8,
+    width: 125,
+    height: 35,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   smallTypeBox: {
     marginRight: 4,
-    borderRadius: 12,
-    width: 80,
-    height: 30,
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: 8,
+    width: 70,
+    height: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

@@ -28,13 +28,19 @@ export const PokemonDetailsModal: React.FC<PokemonDetailsModalProps> = ({ visibl
           backgroundColor: theme.typePaletteBackground.get(
             capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes
           ),
-          borderTopLeftRadius: 40,
-          borderTopRightRadius: 40,
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
           width: '100%',
           height: '100%',
-          top: 60,
+          top: 55,
         }}>
-        <View style={{ position: 'absolute' }}>
+        <View
+          style={{
+            position: 'absolute',
+            width: '100%',
+            justifyContent: 'center',
+            height: 300,
+          }}>
           <Text
             style={{
               fontSize: 130,
@@ -42,25 +48,25 @@ export const PokemonDetailsModal: React.FC<PokemonDetailsModalProps> = ({ visibl
               fontFamily: 'Helvetica',
               fontWeight: 'bold',
               opacity: 0.3,
-              top: 100,
               left: 5,
-              width: '100%',
             }}>{`#${formatNumberForList(pokemon?.id)}`}</Text>
         </View>
-        <Pressable onPress={() => setModalVisible(false)} style={{ padding: 20 }}>
-          <Icon name={'close'} color={'white'} size={20} />
-        </Pressable>
-        <Text style={{ ...textStyle.h1, color: 'white', alignSelf: 'center' }}>
+        <Spacer.Column numberOfSpaces={3} />
+        <Text style={{ ...textStyle.title, color: 'white', alignSelf: 'center' }}>
           {capitalizeFirstLetter(pokemon?.name)}
         </Text>
+        <Pressable onPress={() => setModalVisible(false)} style={{ padding: 20, position: 'absolute' }}>
+          <Icon name={'close'} color={'white'} size={20} />
+        </Pressable>
+
         <View style={{ alignItems: 'center' }}>
           <PokemonImage style={{ width: 200, height: 200, resizeMode: 'contain' }} id={pokemonId} />
         </View>
         <View
           style={{
             backgroundColor: 'white',
-            borderTopLeftRadius: 40,
-            borderTopRightRadius: 40,
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
             width: '100%',
             height: '100%',
             paddingTop: 20,
@@ -72,28 +78,16 @@ export const PokemonDetailsModal: React.FC<PokemonDetailsModalProps> = ({ visibl
                 <Type type={capitalizeFirstLetter(pokemon?.types[1]?.type.name) as PokemonTypes | undefined}></Type>
               </View>
             </View>
-            <View
-              style={{
-                shadowColor: 'black',
-                shadowOpacity: 0.2,
-                shadowRadius: 9,
-                shadowOffset: { height: 5, width: 0 },
-                marginTop: 20,
-                margin: 10,
-                borderRadius: 20,
-                backgroundColor: 'white',
-              }}>
-              <Stats
-                hp={pokemon?.stats[0].base_stat}
-                attack={pokemon?.stats[1].base_stat}
-                defence={pokemon?.stats[2].base_stat}
-                spAttack={pokemon?.stats[2].base_stat}
-                spDefence={pokemon?.stats[4].base_stat}
-                speed={pokemon?.stats[5].base_stat}
-                color={theme.typePalette.get(
-                  capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes
-                )}></Stats>
-            </View>
+            <Spacer.Column numberOfSpaces={2} />
+            <Stats
+              hp={pokemon?.stats[0].base_stat}
+              attack={pokemon?.stats[1].base_stat}
+              defence={pokemon?.stats[2].base_stat}
+              spAttack={pokemon?.stats[2].base_stat}
+              spDefence={pokemon?.stats[4].base_stat}
+              speed={pokemon?.stats[5].base_stat}
+              color={theme.typePalette.get(capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes)}
+            />
           </View>
         </View>
       </View>

@@ -2,6 +2,8 @@ import { View, Text } from 'react-native';
 import { styles } from './styles';
 import { theme } from '../../../../themes/theme';
 import { PokemonTypes } from '../../../global/types';
+import React from 'react';
+import { BugUnselected } from '../../../assets/svgs';
 
 type TypeProps = {
   type?: PokemonTypes;
@@ -25,8 +27,11 @@ export const Type: React.FC<TypeProps> = ({ type, small = false }) => {
         <View
           style={{
             ...styles.typeBox,
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
             backgroundColor: theme.typePalette.get(type),
           }}>
+          <BugUnselected />
           <Text style={styles.text}>{type}</Text>
         </View>
       )}
