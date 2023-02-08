@@ -5,23 +5,13 @@ import { Stats } from '../../Components/Molecules/Stats/Stats';
 import { theme } from '../../../themes/theme';
 import Screen from '../../Components/Screen/Screen';
 import { Type } from '../../Components/Atoms/Type/Type';
+import { Pokemon, PokemonTypes } from '../../global/types';
+import { capitalizeFirstLetter } from '../../helper';
 
 const { width, height } = Dimensions.get('window');
 
-type RenderItemProps = {
-  base_stat: number;
-  item: {
-    effort: number;
-    base_stat: number;
-    stat: {
-      name: string;
-      url: string;
-    };
-  };
-};
-
-export default function PokemonPage({ route, navigation }: any) {
-  var item = route.params;
+export const PokemonPage: React.FC = ({ route, navigation }: any) => {
+  var item: Pokemon = route.params;
 
   const BASE_URL = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/';
   const EXTENSION = '.png';
@@ -37,7 +27,7 @@ export default function PokemonPage({ route, navigation }: any) {
     return '' + id;
   };
 
-  if (item.type === undefined || item.base === undefined) {
+  if (item === undefined) {
     return (
       <View style={{ flex: 1 }}>
         <Text>Loading</Text>
@@ -46,7 +36,10 @@ export default function PokemonPage({ route, navigation }: any) {
   }
 
   return (
-    <Screen name={item.name.english} backgroundColor={theme.typePaletteBackground.get(item.type[0])} whiteText={true}>
+    <Screen
+      name={capitalizeFirstLetter(item.name) as string}
+      backgroundColor={theme.typePaletteBackground.get(capitalizeFirstLetter(item.types[0].type.name) as PokemonTypes)}
+      whiteText={true}>
       {/* Title and Types */}
       <View
         style={{
@@ -73,19 +66,19 @@ export default function PokemonPage({ route, navigation }: any) {
             <View style={{ alignSelf: 'center' }}>
               {item.type.length < 2 ? (
                 <View style={{ flexDirection: 'row' }}>
-                  <Type type={item.type[0]}></Type>
+                  <Type type={capitalizeFirstLetter(item.types[0].type.name) as PokemonTypes}></Type>
                 </View>
               ) : (
                 <View style={{ flexDirection: 'row' }}>
-                  <Type type={item.type[0]}></Type>
-                  <Type type={item.type[1]}></Type>
+                  <Type type={capitalizeFirstLetter(item.types[0].type.name) as PokemonTypes}></Type>
+                  <Type type={capitalizeFirstLetter(item.types[1].type.name) as PokemonTypes}></Type>
                 </View>
               )}
             </View>
             <View
               style={{
                 shadowColor: 'black',
-                shadowOpacity: '0.2',
+                shadowOpacity: 0.2,
                 shadowRadius: 9,
                 shadowOffset: { height: 5 },
                 marginTop: 20,
@@ -94,17 +87,17 @@ export default function PokemonPage({ route, navigation }: any) {
                 backgroundColor: 'white',
               }}>
               <Stats
-                hp={item.base.HP}
-                attack={item.base.Attack}
-                defence={item.base.Defense}
-                spAttack={item.base.SpecialAttack}
-                spDefence={item.base.SpecialDefense}
-                speed={item.base.Speed}
-                color={theme.typePalette.get(item.type[0])}></Stats>
+                hp={item.stats[0].base_stat}
+                attack={item.stats[1].base_stat}
+                defence={item.stats[2].base_stat}
+                spAttack={item.stats[2].base_stat}
+                spDefence={item.stats[4].base_stat}
+                speed={item.stats[5].base_stat}
+                color={theme.typePalette.get(capitalizeFirstLetter(item.types[0].type.name) as PokemonTypes)}></Stats>
             </View>
           </View>
         </View>
       </View>
     </Screen>
   );
-}
+};

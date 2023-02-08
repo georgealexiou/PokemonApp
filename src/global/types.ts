@@ -50,3 +50,11 @@ export type Type = {
   slot: number;
   type: { name: string; url: string };
 };
+
+export type Generation = {
+  id: number;
+  region: string;
+  games?: string[];
+  firstPokemonId: number;
+  lastPokemonId: number;
+};

@@ -3,21 +3,20 @@ import { NavigationContainer, TabActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import PokemonListScreen from '../Features/PokemonListScreen/PokemonListScreen';
-import PokemonPage from '../Features/PokemonPage/PokemonPage';
 import GenerationsScreen from '../Features/GenerationsScreen/GenerationsScreen';
 import HomeScreen from '../Features/HomeScreen/HomeScreen';
 import CreditsScreen from '../Features/CreditsScreen/CreditsScreen';
 import SettingsScreen from '../Features/SettingsScreen/SettingsScreen';
 import { styles } from './styles';
 import { TabOption } from './components/TabOption';
+import { PokemonPage } from '../Features/PokemonPage/PokemonPage';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export type RootStackParams = {
   PokemonListScreen: {
-    id: number;
-    name: string;
+    list: number[];
   };
   PokemonPage: {
     name: string;

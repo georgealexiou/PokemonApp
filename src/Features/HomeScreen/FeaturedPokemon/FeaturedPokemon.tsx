@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { Type } from '../../../Components/Atoms/Type/Type';
 import { textStyle } from '../../../Components/Resource/textStyle';
-import { capitalizeFirstLetter, formatNumber, formatNumberForList } from '../../../helper';
+import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
 import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
 import { Pokemon, PokemonTypes } from '../../../global/types';
-import { SimpleContainer } from '../../../Components/Atoms/SimpleContainer/SimpleContainer';
 import { styles } from './styles';
 import { fetchPokemon } from '../../../global/fetchPokemon';
 import { PokemonImage } from '../../../Components/Atoms/PokemonImage/PokemonImage';
+import { SimplePressable } from '../../../Components/Atoms/SimplePressable/SimplePressable';
 
 type FeaturedPokemonProps = {
   id: number;
+  onPress?: () => void;
 };
 
-export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
+export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id, onPress }) => {
   const [pokemon, setPokemon] = useState<Pokemon>();
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
   });
 
   return (
-    <SimpleContainer style={styles.simpleContainer}>
+    <SimplePressable style={styles.simpleContainer} onPress={onPress}>
       <View style={styles.innerContainer}>
         {pokemon && (
           <>
@@ -48,6 +49,6 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id }) => {
           </>
         )}
       </View>
-    </SimpleContainer>
+    </SimplePressable>
   );
 };
