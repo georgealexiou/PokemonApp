@@ -1,63 +1,39 @@
-import React from 'react';
-import { FlatList, SafeAreaView, View } from 'react-native';
+import React, { useState } from 'react';
+import { SafeAreaView, Text, View } from 'react-native';
 import { RootStackParams } from '../../RootStack/RootStack';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { getRegionalDex } from '../../Components/Resource/Resource';
 import { styles } from './styles';
 import Screen from '../../Components/Screen/Screen';
-import { PokemonPreview } from '../../Components/Molecules/PokemonPreview/PokemonPreview';
 import { Pokeball } from '../../assets/svgs';
+import { Generation } from '../../global/types';
+import { PokemonList } from '../../Components/Organisms/PokemonList/PokemonList';
+import { PokemonDetailsModal } from '../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
+import { Modal } from 'react-bootstrap';
 
 type RenderItemProps = {
-  item: {
-    id: number;
-    name: {};
-    type: string[];
-    base: {};
-  };
+  generation: Generation;
 };
 
 export type PokedexProps = NativeStackScreenProps<RootStackParams, 'PokemonListScreen'>;
 
 const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
-  const BASE_URL = 'https://www.serebii.net/pokedex-sv/icon/';
-  const EXTENSION = '.png';
-
-  const { id, name } = route.params;
-  const pokemonList = getRegionalDex(id);
-  const renderItem: React.FC<RenderItemProps> = ({ item }) => {
-    const onPress = (arg: RenderItemProps) => () => {
-      navigation.navigate('PokemonPage', item);
-    };
-
-    const formatNumber = (id: number) => {
-      if (id < 10) {
-        return '00' + id;
-      } else if (id < 100) {
-        return '0' + id;
-      }
-      return '' + id;
-    };
-
-    return <PokemonPreview item={item} />;
+  const [selectedPokemonId, setSelectedPokemonId] = useState<Number>(1);
+  const [visibleModal, setVisibleModal] = useState<boolean>(false);
+  const list = route.params;
+  const onPokemonSelect = (id: number) => {
+    setSelectedPokemonId(id);
+    setVisibleModal(true);
   };
 
   return (
-    <Screen name={name}>
+    <Screen name={'Region'}>
       <View style={{ position: 'absolute', zIndex: -1, height: '100%', justifyContent: 'flex-start', right: -100 }}>
         <Pokeball />
       </View>
-      <SafeAreaView style={styles.container}>
-        <FlatList data={pokemonList} renderItem={renderItem} numColumns={2} />
-      </SafeAreaView>
+      <PokemonList pokemonIds={list} onPress={onPokemonSelect} />
+      <PokemonDetailsModal visible={visibleModal} setModalVisible={setVisibleModal} pokemonId={selectedPokemonId} />
     </Screen>
   );
 };
 
 export default PokemonListScreen;
-
-function onPress(arg0: {
-  item: RenderItemProps;
-}): ((event: import('react-native').GestureResponderEvent) => void) | undefined {
-  throw new Error('Function not implemented.');
-}

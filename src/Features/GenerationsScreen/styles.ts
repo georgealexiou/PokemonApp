@@ -18,4 +18,10 @@ export const styles = StyleSheet.create({
     margin: 15,
     width: '100%',
   },
+  safeAreaView: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
 });
