@@ -1,7 +1,9 @@
+import React from 'react';
 import { useState } from 'react';
 import { Button, Modal, Pressable, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { theme } from '../../../../themes/theme';
+import { Pokeball } from '../../../assets/svgs';
 import { fetchPokemon } from '../../../global/fetchPokemon';
 import { Pokemon, PokemonTypes } from '../../../global/types';
 import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
@@ -72,6 +74,9 @@ export const PokemonDetailsModal: React.FC<PokemonDetailsModalProps> = ({ visibl
             paddingTop: 20,
           }}>
           <View>
+            <View style={{ position: 'absolute', height: '100%', justifyContent: 'flex-end', top: 250, right: 200 }}>
+              <Pokeball />
+            </View>
             <View style={{ alignSelf: 'center' }}>
               <View style={{ flexDirection: 'row' }}>
                 <Type type={capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes}></Type>

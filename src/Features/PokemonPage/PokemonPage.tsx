@@ -7,6 +7,7 @@ import Screen from '../../Components/Screen/Screen';
 import { Type } from '../../Components/Atoms/Type/Type';
 import { Pokemon, PokemonTypes } from '../../global/types';
 import { capitalizeFirstLetter } from '../../helper';
+import { Pokeball } from '../../assets/svgs';
 
 const { width, height } = Dimensions.get('window');
 

@@ -9,6 +9,7 @@ import { styles } from './styles';
 import { fetchPokemon } from '../../../global/fetchPokemon';
 import { PokemonImage } from '../../../Components/Atoms/PokemonImage/PokemonImage';
 import { SimplePressable } from '../../../Components/Atoms/SimplePressable/SimplePressable';
+import { theme } from '../../../../themes/theme';
 
 type FeaturedPokemonProps = {
   id: number;
@@ -23,15 +24,38 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id, onPress })
   });
 
   return (
-    <SimplePressable style={styles.simpleContainer} onPress={onPress}>
+    <SimplePressable
+      style={styles.simpleContainer}
+      onPress={onPress}
+      backgroundColor={theme.typePaletteBackground.get(
+        capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes
+      )}>
       <View style={styles.innerContainer}>
         {pokemon && (
           <>
             <View>
-              <Text style={textStyle.caption}>Featured Pokemon</Text>
+              <View
+                style={{
+                  position: 'absolute',
+                  alignItems: 'flex-start',
+                  width: 350,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 120,
+                    color: 'white',
+                    fontFamily: 'Helvetica',
+                    fontWeight: 'bold',
+                    top: 60,
+                    opacity: 0.3,
+                  }}>{`#${formatNumberForList(pokemon.id)}`}</Text>
+              </View>
+              <Text style={{ ...textStyle.caption, color: 'white' }}>Featured Pokemon</Text>
               <Spacer.Column numberOfSpaces={1} />
-              <Text style={textStyle.h1}>{`#${formatNumberForList(id)} ${capitalizeFirstLetter(pokemon.name)}`}</Text>
-              <Spacer.Flex />
+              <Text style={{ ...textStyle.h1, color: 'white' }}>{`#${formatNumberForList(id)} ${capitalizeFirstLetter(
+                pokemon.name
+              )}`}</Text>
+              <Spacer.Column numberOfSpaces={1} />
               <View style={{ flexDirection: 'row' }}>
                 <Type
                   type={capitalizeFirstLetter(pokemon.types[0].type.name) as PokemonTypes | undefined}

@@ -15,12 +15,11 @@ export const styles = StyleSheet.create({
     padding: 10,
   },
   numberStyle: {
-    fontSize: 55,
+    fontSize: 57,
     color: 'white',
     fontFamily: 'Helvetica',
     fontWeight: 'bold',
     opacity: 0.3,
-    top: 60,
     left: 5,
     width: 160,
   },
@@ -29,5 +28,8 @@ export const styles = StyleSheet.create({
   numberContainer: {
     position: 'absolute',
     justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    top: 60,
   },
 });

@@ -2,6 +2,7 @@ import { Pressable } from 'react-native';
 import { ReactNode } from 'react';
 import { SimpleContainer } from '../SimpleContainer/SimpleContainer';
 import { theme } from '../../../../themes/theme';
+import React from 'react';
 
 type TypeProps = {
   children: ReactNode | ReactNode[] | undefined;

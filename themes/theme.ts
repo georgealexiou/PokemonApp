@@ -23,7 +23,7 @@ export const typeColorsBackground = new Map([
   [PokemonTypes.WATER, '#58ABF6'],
   [PokemonTypes.ELECTRIC, '#F2CB55'],
   [PokemonTypes.GRASS, '#8BBE8A'],
-  [PokemonTypes.ICE, '#61CEC0'],
+  [PokemonTypes.ICE, '#91D8DF'],
   [PokemonTypes.FIGHTING, '#EB4971'],
   [PokemonTypes.POISON, '#9F6E97'],
   [PokemonTypes.GROUND, '#F78551'],
