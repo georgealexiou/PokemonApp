@@ -2,8 +2,7 @@ import React from 'react';
 import { Image, Text, View, FlatList, SafeAreaView, ImageBackground, Pressable } from 'react-native';
 import { Pokeball } from '../../assets/svgs';
 import Screen from '../../Components/Screen/Screen';
-import regions from '../../assets/regions/regions.json';
-import { styles } from './styles';
+import { default as regions } from '../../assets/json/regions.json';
 import { Generation } from '../../global/types';
 import { SimplePressable } from '../../Components/Atoms/SimplePressable/SimplePressable';
 import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
@@ -19,6 +18,7 @@ type GenerationScreenProps = {
 };
 
 export const GenerationsScreen: React.FC<GenerationScreenProps> = ({ navigation }) => {
+  console.log(regions);
   const renderItem: React.FC<RenderItemProps> = ({ item }) => {
     const onPress = (arg: RenderItemProps) => () => {
       const generateList = () => {

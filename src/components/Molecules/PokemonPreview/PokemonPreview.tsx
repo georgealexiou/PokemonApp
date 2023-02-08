@@ -8,6 +8,7 @@ import { Spacer } from '../../Atoms/Spacer.tsx/Spacer';
 import { Pokemon, PokemonTypes } from '../../../global/types';
 import { styles } from './styles';
 import axios from 'axios';
+import { default as pokemonList } from '../../../assets/json/pokemon.json';
 
 type PokemonPreviewProps = {
   id: number;
@@ -15,33 +16,19 @@ type PokemonPreviewProps = {
 };
 
 export const PokemonPreview: React.FC<PokemonPreviewProps> = ({ id, onPress }) => {
-  const [pokemon, setPokemon] = useState<Pokemon>();
+  const [pokemon, setPokemon] = useState<any>();
   useEffect(() => {
-    if (pokemon) return;
-    fetchPokemon;
+    setPokemon(pokemonList[id + 1]);
   });
 
-  const fetchPokemon = useMemo(async () => {
-    try {
-      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-      if (!setPokemon) return response.data;
-      else setPokemon(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
   return (
     <>
       {pokemon && (
         <Pressable
           style={{
             ...styles.pressableStyle,
-            shadowColor: theme.typePaletteBackground.get(
-              capitalizeFirstLetter(pokemon.types[0].type.name) as PokemonTypes
-            ),
-            backgroundColor: theme.typePaletteBackground.get(
-              capitalizeFirstLetter(pokemon.types[0].type.name) as PokemonTypes
-            ),
+            shadowColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
+            backgroundColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
           }}
           onPress={onPress}>
           <View style={styles.numberContainer}>
