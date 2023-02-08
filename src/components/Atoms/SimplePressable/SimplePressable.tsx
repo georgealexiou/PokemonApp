@@ -6,8 +6,8 @@ import { theme } from '../../../../themes/theme';
 type TypeProps = {
   children: ReactNode | ReactNode[] | undefined;
   style: {
-    width: number | string;
-    height: number | string;
+    width?: number | string;
+    height?: number | string;
   };
   onPress?: () => void;
   backgroundColor?: string;
