@@ -18,30 +18,32 @@ type PokemonPreviewProps = {
 export const PokemonPreview: React.FC<PokemonPreviewProps> = ({ id, onPress }) => {
   const [pokemon, setPokemon] = useState<any>();
   useEffect(() => {
-    setPokemon(pokemonList[id + 1]);
+    setPokemon(pokemonList[id - 1]);
   });
 
   return (
     <>
       {pokemon && (
-        <Pressable
-          style={{
-            ...styles.pressableStyle,
-            shadowColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
-            backgroundColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
-          }}
-          onPress={onPress}>
-          <View style={styles.numberContainer}>
-            <Text style={styles.numberStyle}>{`#${formatNumberForList(pokemon.id)}`}</Text>
-          </View>
-          <View style={{ alignItems: 'center' }}>
-            <Text style={{ ...textStyle.h1, color: theme.palette.white }}>{capitalizeFirstLetter(pokemon.name)}</Text>
-            <Spacer.Column numberOfSpaces={1} />
-            <View style={styles.imageContainer}>
-              <PokemonImage style={styles.imageStyle} id={pokemon.id} />
+        <>
+          <Pressable
+            style={{
+              ...styles.pressableStyle,
+              shadowColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
+              backgroundColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
+            }}
+            onPress={onPress}>
+            <View style={styles.numberContainer}>
+              <Text style={styles.numberStyle}>{`#${formatNumberForList(pokemon.id)}`}</Text>
             </View>
-          </View>
-        </Pressable>
+            <View style={{ alignItems: 'center' }}>
+              <Text style={{ ...textStyle.h1, color: theme.palette.white }}>{capitalizeFirstLetter(pokemon.name)}</Text>
+              <Spacer.Column numberOfSpaces={1} />
+              <View style={styles.imageContainer}>
+                <PokemonImage style={styles.imageStyle} id={pokemon.id} />
+              </View>
+            </View>
+          </Pressable>
+        </>
       )}
     </>
   );

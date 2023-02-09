@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { Pokeball } from '../../assets/svgs';
+import { SimpleContainer } from '../../Components/Atoms/SimpleContainer/SimpleContainer';
 import { SimplePressable } from '../../Components/Atoms/SimplePressable/SimplePressable';
 import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
 import { PokemonDetailsModal } from '../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
@@ -21,7 +22,7 @@ const HomeScreen = ({ navigation }: any) => {
       style={{
         flex: 1,
         paddingHorizontal: 16,
-        paddingTop: 70,
+        paddingTop: 120,
         backgroundColor: 'white',
       }}>
       <View
@@ -44,24 +45,28 @@ const HomeScreen = ({ navigation }: any) => {
             style={styles.button}
             onPress={() => navigation.navigate('GenerationsScreen', { screen: 'Settings' })}>
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-              <Text style={textStyle.h2}>Pokédex</Text>
+              <Text style={textStyle.h2}>Generations</Text>
             </View>
           </SimplePressable>
           <Spacer.Flex />
-          <SimplePressable style={styles.button} onPress={() => navigation.navigate('Credits')}>
-            <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-              <Text style={textStyle.h2}>Credits</Text>
-            </View>
-          </SimplePressable>
-        </View>
-        <Spacer.Column numberOfSpaces={3} />
-        <View style={{ flexDirection: 'row' }}>
           <SimplePressable style={styles.button}>
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
               <Text style={textStyle.h2}>Favourites</Text>
             </View>
           </SimplePressable>
-          <Spacer.Flex />
+        </View>
+        <View>
+          <Spacer.Column numberOfSpaces={3} />
+          <SimpleContainer>
+            <View style={{ padding: 20 }}>
+              <Text style={textStyle.h1}>What is a Pokédex?</Text>
+              <Spacer.Column numberOfSpaces={2} />
+              <Text style={textStyle.caption}>
+                A Pokedex is a digital encyclopedia for the Pokemon universe. It provides a comprehensive database of
+                information about all of the Pokemon species, including their attributes, abilities, stats, and moves.
+              </Text>
+            </View>
+          </SimpleContainer>
         </View>
       </View>
       <Spacer.Flex />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button, Modal, Pressable, Text, View } from 'react-native';
+import GestureRecognizer from 'react-native-swipe-gestures';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { theme } from '../../../../themes/theme';
 import { Pokeball } from '../../../assets/svgs';

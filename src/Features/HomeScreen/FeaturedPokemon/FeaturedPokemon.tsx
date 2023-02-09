@@ -34,22 +34,6 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id, onPress })
         {pokemon && (
           <>
             <View>
-              <View
-                style={{
-                  position: 'absolute',
-                  alignItems: 'flex-start',
-                  width: 350,
-                }}>
-                <Text
-                  style={{
-                    fontSize: 120,
-                    color: 'white',
-                    fontFamily: 'Helvetica',
-                    fontWeight: 'bold',
-                    top: 60,
-                    opacity: 0.3,
-                  }}>{`#${formatNumberForList(pokemon.id)}`}</Text>
-              </View>
               <Text style={{ ...textStyle.caption, color: 'white' }}>Featured Pokemon</Text>
               <Spacer.Column numberOfSpaces={1} />
               <Text style={{ ...textStyle.h1, color: 'white' }}>{`#${formatNumberForList(id)} ${capitalizeFirstLetter(
@@ -65,6 +49,20 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id, onPress })
                   type={capitalizeFirstLetter(pokemon.types[1]?.type.name) as PokemonTypes | undefined}
                   small={true}
                 />
+              </View>
+              <View
+                style={{
+                  alignItems: 'flex-start',
+                  width: 350,
+                }}>
+                <Text
+                  style={{
+                    fontSize: 120,
+                    color: 'white',
+                    fontFamily: 'Helvetica',
+                    fontWeight: 'bold',
+                    opacity: 0.3,
+                  }}>{`#${formatNumberForList(pokemon.id)}`}</Text>
               </View>
             </View>
             <View style={styles.imageContainer}>

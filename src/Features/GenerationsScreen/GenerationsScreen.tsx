@@ -18,7 +18,6 @@ type GenerationScreenProps = {
 };
 
 export const GenerationsScreen: React.FC<GenerationScreenProps> = ({ navigation }) => {
-  console.log(regions);
   const renderItem: React.FC<RenderItemProps> = ({ item }) => {
     const onPress = (arg: RenderItemProps) => () => {
       const generateList = () => {

@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { styles } from './styles';
 import { ReactNode } from 'react';
 import { theme } from '../../../../themes/theme';
+import React from 'react';
 
 type TypeProps = {
   children: ReactNode | ReactNode[] | undefined;

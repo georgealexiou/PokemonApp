@@ -16,16 +16,20 @@ type RenderItemProps = {
 export const PokemonList: React.FC<PokemonListProps> = ({ pokemonIds, onPress }) => {
   const renderItem = ({ item }) => {
     return (
-      <PokemonPreview
-        id={item}
-        onPress={() => {
-          onPress(item);
-        }}
-      />
+      <>
+        <PokemonPreview
+          id={item}
+          onPress={() => {
+            onPress(item);
+          }}
+        />
+      </>
     );
   };
 
   const renderItemSeparator = () => <Spacer.Column numberOfSpaces={1} />;
+
+  const renderListFooter = () => <Spacer.Column numberOfSpaces={10} />;
 
   const keyExtractor = (_: any, index: any) => `post-${index}`;
 
@@ -36,6 +40,7 @@ export const PokemonList: React.FC<PokemonListProps> = ({ pokemonIds, onPress })
       numColumns={2}
       keyExtractor={keyExtractor}
       ItemSeparatorComponent={renderItemSeparator}
+      ListFooterComponent={renderListFooter}
     />
   );
 };

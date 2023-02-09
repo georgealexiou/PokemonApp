@@ -4,7 +4,7 @@ import { theme } from '../../../themes/theme';
 export const styles = StyleSheet.create({
   button: {
     height: 60,
-    width: '45%',
+    width: '48%',
   },
   tinyLogo: {
     width: 350,
