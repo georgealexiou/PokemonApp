@@ -4,7 +4,7 @@ import { Type } from '../../../Components/Atoms/Type/Type';
 import { textStyle } from '../../../Components/Resource/textStyle';
 import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
 import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
-import { Pokemon, PokemonTypes } from '../../../global/types';
+import { Pokemon, stringToType } from '../../../global/types';
 import { styles } from './styles';
 import { fetchPokemon } from '../../../global/fetchPokemon';
 import { PokemonImage } from '../../../Components/Atoms/PokemonImage/PokemonImage';
@@ -27,28 +27,22 @@ export const FeaturedPokemon: React.FC<FeaturedPokemonProps> = ({ id, onPress })
     <SimplePressable
       style={styles.simpleContainer}
       onPress={onPress}
-      backgroundColor={theme.typePaletteBackground.get(
-        capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes
-      )}>
+      backgroundColor={theme.getBackgroundTypeColor(pokemon?.types[0].type.name)}>
       <View style={styles.innerContainer}>
         {pokemon && (
           <>
             <View>
               <Text style={{ ...textStyle.caption, color: 'white' }}>Featured Pokemon</Text>
               <Spacer.Column numberOfSpaces={1} />
-              <Text style={{ ...textStyle.h1, color: 'white' }}>{`#${formatNumberForList(id)} ${capitalizeFirstLetter(
-                pokemon.name
-              )}`}</Text>
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ ...textStyle.h1, opacity: 0.3 }}>{`#${formatNumberForList(id)} `}</Text>
+
+                <Text style={{ ...textStyle.h1, color: 'white' }}>{`${capitalizeFirstLetter(pokemon.name)}`}</Text>
+              </View>
               <Spacer.Column numberOfSpaces={1} />
               <View style={{ flexDirection: 'row' }}>
-                <Type
-                  type={capitalizeFirstLetter(pokemon.types[0].type.name) as PokemonTypes | undefined}
-                  small={true}
-                />
-                <Type
-                  type={capitalizeFirstLetter(pokemon.types[1]?.type.name) as PokemonTypes | undefined}
-                  small={true}
-                />
+                <Type type={stringToType(pokemon?.types[0].type.name)} small={true} />
+                <Type type={stringToType(pokemon?.types[1]?.type.name)} small={true} />
               </View>
               <View
                 style={{

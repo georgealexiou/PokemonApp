@@ -1,45 +1,41 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { Pokeball } from '../../assets/svgs';
-import { SimpleContainer } from '../../Components/Atoms/SimpleContainer/SimpleContainer';
 import { SimplePressable } from '../../Components/Atoms/SimplePressable/SimplePressable';
 import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
 import { PokemonDetailsModal } from '../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
+import { PokemonList } from '../../Components/Organisms/PokemonList/PokemonList';
 import { textStyle } from '../../Components/Resource/textStyle';
 import { FeaturedPokemon } from './FeaturedPokemon/FeaturedPokemon';
 import { styles } from './styles';
 
 const HomeScreen = ({ navigation }: any) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [id, setId] = useState<number>();
+  const [id, setId] = useState<number>(1);
+  const [featuredId, setFeaturedId] = useState<number>(0);
 
   useMemo(() => {
-    setId(Math.floor(Math.random() * 1008));
+    setFeaturedId(Math.floor(Math.random() * 1008));
   }, []);
 
   return (
     <View
       style={{
-        flex: 1,
-        paddingHorizontal: 16,
-        paddingTop: 120,
         backgroundColor: 'white',
+        paddingTop: 60,
       }}>
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Spacer.Column numberOfSpaces={10} />
+      <View style={{ paddingHorizontal: 16 }}>
         <Text style={{ ...textStyle.h1, textAlign: 'left', width: '100%' }}>Welcome to your Pokedex!</Text>
-        <Spacer.Column numberOfSpaces={5} />
+        <Spacer.Column numberOfSpaces={4} />
         <FeaturedPokemon
-          id={id as number}
+          id={featuredId as number}
           onPress={() => {
+            setId(featuredId);
             setModalVisible(true);
           }}></FeaturedPokemon>
-        <Spacer.Column numberOfSpaces={3} />
+        <Spacer.Column numberOfSpaces={5} />
+
         <View style={{ flexDirection: 'row' }}>
           <SimplePressable
             style={styles.button}
@@ -56,20 +52,19 @@ const HomeScreen = ({ navigation }: any) => {
           </SimplePressable>
         </View>
         <View>
-          <Spacer.Column numberOfSpaces={3} />
-          <SimpleContainer>
-            <View style={{ padding: 20 }}>
-              <Text style={textStyle.h1}>What is a Pokédex?</Text>
-              <Spacer.Column numberOfSpaces={2} />
-              <Text style={textStyle.caption}>
-                A Pokedex is a digital encyclopedia for the Pokemon universe. It provides a comprehensive database of
-                information about all of the Pokemon species, including their attributes, abilities, stats, and moves.
-              </Text>
-            </View>
-          </SimpleContainer>
+          <Spacer.Column numberOfSpaces={6} />
+          <Text style={textStyle.h1}>Favourites</Text>
+          <Spacer.Column numberOfSpaces={1} />
         </View>
       </View>
-      <Spacer.Flex />
+      <PokemonList
+        horizontal
+        pokemonIds={[814, 920, 1000]}
+        onPress={(id: number) => {
+          setModalVisible(true);
+          setId(id);
+        }}
+      />
       <View style={{ position: 'absolute', zIndex: -1, height: '100%', justifyContent: 'flex-end', right: -170 }}>
         <Pokeball />
       </View>

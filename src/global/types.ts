@@ -2,8 +2,8 @@ export enum PokemonTypes {
   NORMAL = 'Normal',
   FIRE = 'Fire',
   WATER = 'Water',
-  GRASS = 'Grass',
   ELECTRIC = 'Electric',
+  GRASS = 'Grass',
   ICE = 'Ice',
   FIGHTING = 'Fighting',
   POISON = 'Poison',
@@ -18,6 +18,13 @@ export enum PokemonTypes {
   STEEL = 'Steel',
   FAIRY = 'Fairy',
 }
+
+export const stringToType = (typeString?: string) => {
+  if (!typeString) {
+    return undefined;
+  }
+  return Object.values(PokemonTypes).find((t) => t.toLowerCase() === typeString.toLowerCase());
+};
 
 export type Pokemon = {
   id: number;

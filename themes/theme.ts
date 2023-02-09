@@ -1,5 +1,5 @@
 import { Dimensions as NativeDimensions } from 'react-native';
-import { PokemonTypes } from '../src/global/types';
+import { PokemonTypes, stringToType } from '../src/global/types';
 
 const SCREEN_WIDTH = NativeDimensions.get('window').width;
 const SCREEN_HEIGHT = NativeDimensions.get('window').height;
@@ -70,12 +70,24 @@ export enum COLORS {
   platinum = '#E5E4E2',
 }
 
+export const getBackgroundTypeColor = (typeString: string | undefined) => {
+  const type = stringToType(typeString);
+  return type ? typeColorsBackground.get(type) : theme.palette.white;
+};
+
+export const getTypeColor = (typeString: string | undefined) => {
+  const type = stringToType(typeString);
+  return type ? typeColors.get(type) : theme.palette.white;
+};
+
 class Theme {
   palette: typeof COLORS;
   typePalette;
   typePaletteBackground;
   dimensions: Dimensions;
   iconSize: typeof IconSizes;
+  getBackgroundTypeColor: (typeString: string | undefined) => string | undefined;
+  getTypeColor: (typeString: string | undefined) => string | undefined;
 
   constructor() {
     this.palette = { ...COLORS };
@@ -83,6 +95,8 @@ class Theme {
     this.iconSize = { ...IconSizes };
     this.typePaletteBackground = typeColorsBackground;
     this.typePalette = typeColors;
+    this.getBackgroundTypeColor = getBackgroundTypeColor;
+    this.getTypeColor = getTypeColor;
   }
 
   spacing(multiplier: number) {

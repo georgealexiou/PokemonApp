@@ -1,17 +1,16 @@
 import { View, Text } from 'react-native';
-import { styles } from './styles';
 import { StatBar } from '../../Atoms/StatBar/StatBar';
-import { SimpleContainer } from '../../Atoms/SimpleContainer/SimpleContainer';
 import { textStyle } from '../../Resource/textStyle';
+import React from 'react';
 
 type StatsProps = {
-  color: string | undefined;
-  hp: number;
-  attack: number;
-  defence: number;
-  spAttack: number;
-  spDefence: number;
-  speed: number;
+  color?: string;
+  hp?: number;
+  attack?: number;
+  defence?: number;
+  spAttack?: number;
+  spDefence?: number;
+  speed?: number;
 };
 
 export const Stats: React.FC<StatsProps> = ({ color, hp, attack, defence, spAttack, spDefence, speed }) => {

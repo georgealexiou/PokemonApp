@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { View, Text, TextInput, FlatList, Pressable } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { View, Text, TextInput, FlatList, Pressable, Keyboard } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { default as allpokemon } from '../../assets/json/pokemon.json';
 import { Pokeball } from '../../assets/svgs';
@@ -21,6 +21,7 @@ export const SearchScreen: React.FC = ({ navigation }: any) => {
     const [filteredPokemon, setFilteredPokemon] = useState<number[]>([]);
     const [selectedPokemonId, setSelectedPokemonId] = useState<Number>(1);
     const [visibleModal, setVisibleModal] = useState<boolean>(false);
+
     const onPokemonSelect = (id: number) => {
       setSelectedPokemonId(id);
       setVisibleModal(true);

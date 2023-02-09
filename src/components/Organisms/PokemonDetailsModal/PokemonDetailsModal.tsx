@@ -1,19 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { Button, Modal, Pressable, Text, View } from 'react-native';
-import GestureRecognizer from 'react-native-swipe-gestures';
+import { Modal, Pressable, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { theme } from '../../../../themes/theme';
 import { Pokeball } from '../../../assets/svgs';
 import { fetchPokemon } from '../../../global/fetchPokemon';
-import { Pokemon, PokemonTypes } from '../../../global/types';
+import { Pokemon, PokemonTypes, stringToType } from '../../../global/types';
 import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
 import { PokemonImage } from '../../Atoms/PokemonImage/PokemonImage';
 import { Spacer } from '../../Atoms/Spacer.tsx/Spacer';
 import { Type } from '../../Atoms/Type/Type';
 import { Stats } from '../../Molecules/Stats/Stats';
 import { textStyle } from '../../Resource/textStyle';
-import Screen from '../../Screen/Screen';
 
 type PokemonDetailsModalProps = {
   visible: boolean;
@@ -28,9 +26,7 @@ export const PokemonDetailsModal: React.FC<PokemonDetailsModalProps> = ({ visibl
     <Modal animationType="slide" visible={visible} transparent={true}>
       <View
         style={{
-          backgroundColor: theme.typePaletteBackground.get(
-            capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes
-          ),
+          backgroundColor: theme.getBackgroundTypeColor(pokemon?.types[0].type.name),
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
           width: '100%',
@@ -80,8 +76,8 @@ export const PokemonDetailsModal: React.FC<PokemonDetailsModalProps> = ({ visibl
             </View>
             <View style={{ alignSelf: 'center' }}>
               <View style={{ flexDirection: 'row' }}>
-                <Type type={capitalizeFirstLetter(pokemon?.types[0].type.name) as PokemonTypes}></Type>
-                <Type type={capitalizeFirstLetter(pokemon?.types[1]?.type.name) as PokemonTypes | undefined}></Type>
+                <Type type={stringToType(pokemon?.types[0]?.type.name)} />
+                <Type type={stringToType(pokemon?.types[1]?.type.name)} />
               </View>
             </View>
             <Spacer.Column numberOfSpaces={2} />

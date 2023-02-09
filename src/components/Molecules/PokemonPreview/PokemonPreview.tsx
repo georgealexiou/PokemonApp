@@ -3,16 +3,15 @@ import { theme } from '../../../../themes/theme';
 import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
 import { PokemonImage } from '../../Atoms/PokemonImage/PokemonImage';
 import { textStyle } from '../../Resource/textStyle';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Spacer } from '../../Atoms/Spacer.tsx/Spacer';
-import { Pokemon, PokemonTypes } from '../../../global/types';
 import { styles } from './styles';
-import axios from 'axios';
 import { default as pokemonList } from '../../../assets/json/pokemon.json';
 
 type PokemonPreviewProps = {
   id: number;
   onPress?: () => void;
+  horizontal: boolean;
 };
 
 export const PokemonPreview: React.FC<PokemonPreviewProps> = ({ id, onPress }) => {
@@ -28,8 +27,8 @@ export const PokemonPreview: React.FC<PokemonPreviewProps> = ({ id, onPress }) =
           <Pressable
             style={{
               ...styles.pressableStyle,
-              shadowColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
-              backgroundColor: theme.typePaletteBackground.get(capitalizeFirstLetter(pokemon.types[0]) as PokemonTypes),
+              shadowColor: theme.getBackgroundTypeColor(pokemon.types[0]),
+              backgroundColor: theme.getBackgroundTypeColor(pokemon.types[0]),
             }}
             onPress={onPress}>
             <View style={styles.numberContainer}>

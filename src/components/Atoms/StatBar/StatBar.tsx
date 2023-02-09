@@ -5,11 +5,11 @@ import { styles } from './styles';
 
 type StatBarProps = {
   statName: string;
-  stat: number;
+  stat?: number;
   color?: string;
 };
 
-export const StatBar: React.FC<StatBarProps> = ({ statName, stat, color }) => {
+export const StatBar: React.FC<StatBarProps> = ({ statName, stat = 0, color }) => {
   const percent = stat / 255;
   const width = 340;
 
