@@ -2211,6 +2211,21 @@
   resolved "https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@types/body-parser@^1.19.2":
+  version "1.19.2"
+  resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.2.tgz#aea2059e28b7658639081347ac4fab3de166e6f0"
+  integrity sha512-ALYone6pm6QmwZoAgeyNksccT9Q4AWZQ6PvfwR37GT6r6FWUPguq6sUmNGSMV2Wr761oQoBxwGGa6DR5o1DC9g==
+  dependencies:
+    "@types/connect" "*"
+    "@types/node" "*"
+
+"@types/connect@*":
+  version "3.4.35"
+  resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.35.tgz#5fcf6ae445e4021d1fc2219a4873cc73a3bb2ad1"
+  integrity sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==
+  dependencies:
+    "@types/node" "*"
+
 "@types/glob@^7.1.1":
   version "7.2.0"
   resolved "https://registry.npmjs.org/@types/glob/-/glob-7.2.0.tgz"
