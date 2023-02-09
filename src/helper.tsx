@@ -12,8 +12,10 @@ export const formatNumber = (id: number) => {
   return `${id}`;
 };
 
-export const formatNumberForList = (id: number) => {
-  if (id < 10) {
+export const formatNumberForList = (id?: number) => {
+  if (!id) {
+    return '#0000';
+  } else if (id < 10) {
     return `000${id}`;
   } else if (id < 100) {
     return `00${id}`;
