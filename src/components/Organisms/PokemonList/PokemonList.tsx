@@ -15,13 +15,15 @@ type RenderItemProps = {
 };
 
 export const PokemonList: React.FC<PokemonListProps> = ({ pokemonIds, onPress, horizontal = false }) => {
-  const renderItem = ({ item }) => {
+  const renderItem = ({ item }: { item: number }) => {
     return (
       <>
         <PokemonPreview
           id={item}
           onPress={() => {
-            onPress(item);
+            if (onPress) {
+              onPress(item);
+            }
           }}
         />
       </>

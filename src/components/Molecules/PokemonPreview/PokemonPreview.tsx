@@ -11,7 +11,6 @@ import { default as pokemonList } from '../../../assets/json/pokemon.json';
 type PokemonPreviewProps = {
   id: number;
   onPress?: () => void;
-  horizontal: boolean;
 };
 
 export const PokemonPreview: React.FC<PokemonPreviewProps> = ({ id, onPress }) => {

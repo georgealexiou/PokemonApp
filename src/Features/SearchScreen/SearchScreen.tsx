@@ -19,7 +19,7 @@ export const SearchScreen: React.FC = ({ navigation }: any) => {
   const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredPokemon, setFilteredPokemon] = useState<number[]>([]);
-    const [selectedPokemonId, setSelectedPokemonId] = useState<Number>(1);
+    const [selectedPokemonId, setSelectedPokemonId] = useState<number>(1);
     const [visibleModal, setVisibleModal] = useState<boolean>(false);
 
     const onPokemonSelect = (id: number) => {
