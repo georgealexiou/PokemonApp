@@ -1,6 +1,5 @@
-import React, { useMemo } from 'react';
-import { FlatList, Pressable, SafeAreaView, TouchableOpacity, View } from 'react-native';
-import { Generation } from '../../../global/types';
+import React from 'react';
+import { FlatList } from 'react-native';
 import { Spacer } from '../../Atoms/Spacer.tsx/Spacer';
 import { PokemonPreview } from '../../Molecules/PokemonPreview/PokemonPreview';
 
@@ -9,11 +8,6 @@ type PokemonListProps = {
   onPress?: Function;
   horizontal?: boolean;
 };
-
-type RenderItemProps = {
-  item: number;
-};
-
 export const PokemonList: React.FC<PokemonListProps> = ({ pokemonIds, onPress, horizontal = false }) => {
   const renderItem = ({ item }: { item: number }) => {
     return (

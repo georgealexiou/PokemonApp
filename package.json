@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "find-deadcode": "ts-prune"
   },
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
@@ -34,7 +35,8 @@
     "react-native-svg-transformer": "^1.0.0",
     "react-native-swipe-gestures": "^1.0.5",
     "react-native-vector-icons": "^9.2.0",
-    "react-native-web": "~0.18.9"
+    "react-native-web": "~0.18.9",
+    "ts-prune": "^0.10.3"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

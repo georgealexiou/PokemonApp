@@ -10,14 +10,14 @@ type Dimensions = {
   width: number;
 };
 
-export enum IconSizes {
+enum IconSizes {
   SMALL = 24,
   MEDIUM = 32,
   LARGE = 64,
   XXL = 100,
 }
 
-export const typeColorsBackground = new Map([
+const typeColorsBackground = new Map([
   [PokemonTypes.NORMAL, '#B5B9C4'],
   [PokemonTypes.FIRE, '#FFA756'],
   [PokemonTypes.WATER, '#58ABF6'],
@@ -38,7 +38,7 @@ export const typeColorsBackground = new Map([
   [PokemonTypes.FAIRY, '#EBA8C3'],
 ]);
 
-export const typeColors = new Map([
+const typeColors = new Map([
   [PokemonTypes.NORMAL, '#9DA0AA'],
   [PokemonTypes.FIRE, '#FD7D24'],
   [PokemonTypes.WATER, '#4A90DA'],
@@ -59,7 +59,7 @@ export const typeColors = new Map([
   [PokemonTypes.FAIRY, '#ED6EC7'],
 ]);
 
-export enum COLORS {
+enum COLORS {
   dark = '#FFFFFF',
   cadet = '#586f7c',
   ice = '#B8DBD9',
@@ -70,12 +70,12 @@ export enum COLORS {
   platinum = '#E5E4E2',
 }
 
-export const getBackgroundTypeColor = (typeString: string | undefined) => {
+const getBackgroundTypeColor = (typeString: string | undefined) => {
   const type = stringToType(typeString);
   return type ? typeColorsBackground.get(type) : theme.palette.white;
 };
 
-export const getTypeColor = (typeString: string | undefined) => {
+const getTypeColor = (typeString: string | undefined) => {
   const type = stringToType(typeString);
   return type ? typeColors.get(type) : theme.palette.white;
 };

@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { RootStackParams } from '../../RootStack/RootStack';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { styles } from './styles';
-import Screen from '../../Components/Screen/Screen';
+import { Screen } from '../../Components/Screen/Screen';
 import { Pokeball } from '../../assets/svgs';
-import { Generation } from '../../global/types';
 import { PokemonList } from '../../Components/Organisms/PokemonList/PokemonList';
 import { PokemonDetailsModal } from '../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
-import { Modal } from 'react-bootstrap';
 
-type RenderItemProps = {
-  generation: Generation;
+type PokedexProps = {
+  navigation: NativeStackScreenProps<RootStackParams, 'PokemonListScreen'>;
+  route: any;
 };
 
-export type PokedexProps = NativeStackScreenProps<RootStackParams, 'PokemonListScreen'>;
-
-const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
+export const PokemonListScreen: React.FC<PokedexProps> = ({ navigation, route }) => {
   const [selectedPokemonId, setSelectedPokemonId] = useState<Number>(1);
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const list = route.params;
@@ -35,5 +31,3 @@ const PokemonListScreen = ({ route, navigation }: PokedexProps) => {
     </Screen>
   );
 };
-
-export default PokemonListScreen;

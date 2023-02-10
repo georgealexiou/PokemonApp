@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
-import { View, Text, TextInput, FlatList, Pressable, Keyboard } from 'react-native';
+import { useState } from 'react';
+import { View, Text, TextInput, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { default as allpokemon } from '../../assets/json/pokemon.json';
 import { Pokeball } from '../../assets/svgs';

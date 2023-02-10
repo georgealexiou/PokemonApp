@@ -1,12 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { FunctionComponent, useMemo } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { SafeAreaView, Edge } from 'react-native-safe-area-context';
-import { theme } from '../../../themes/theme';
 import { styles } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export type ScreenAreaProps = {
+type ScreenAreaProps = {
   name: string;
   onBackButtonPress?: any;
   children?: React.ReactNode | React.ReactNode[];
@@ -87,5 +85,3 @@ export const Screen: FunctionComponent<ScreenAreaProps> = ({
     </SafeAreaView>
   );
 };
-
-export default Screen;

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Image, Text, View, FlatList, SafeAreaView, ImageBackground, Pressable } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 import { Pokeball } from '../../assets/svgs';
-import Screen from '../../Components/Screen/Screen';
+import { Screen } from '../../Components/Screen/Screen';
 import { default as regions } from '../../assets/json/regions.json';
 import { Generation } from '../../global/types';
 import { SimplePressable } from '../../Components/Atoms/SimplePressable/SimplePressable';
-import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
 import { textStyle } from '../../Components/Resource/textStyle';
 import { PokemonImage } from '../../Components/Atoms/PokemonImage/PokemonImage';
 
@@ -104,5 +103,3 @@ export const GenerationsScreen: React.FC<GenerationScreenProps> = ({ navigation 
     </Screen>
   );
 };
-
-export default GenerationsScreen;
