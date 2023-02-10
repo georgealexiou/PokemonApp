@@ -1,6 +1,6 @@
 import { View, Text, Pressable } from 'react-native';
 import { theme } from '../../../../themes/theme';
-import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
+import { capitalizeFirstLetter, formatNumberForList } from '../../../global/helper';
 import { PokemonImage } from '../../Atoms/PokemonImage/PokemonImage';
 import { textStyle } from '../../Resource/textStyle';
 import React, { useEffect, useState } from 'react';

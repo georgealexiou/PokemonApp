@@ -6,7 +6,7 @@ import { theme } from '../../../../themes/theme';
 import { Pokeball } from '../../../assets/svgs';
 import { fetchPokemon } from '../../../global/fetchPokemon';
 import { Pokemon, PokemonTypes, stringToType } from '../../../global/types';
-import { capitalizeFirstLetter, formatNumberForList } from '../../../helper';
+import { capitalizeFirstLetter, formatNumberForList } from '../../../global/helper';
 import { PokemonImage } from '../../Atoms/PokemonImage/PokemonImage';
 import { Spacer } from '../../Atoms/Spacer.tsx/Spacer';
 import { Type } from '../../Atoms/Type/Type';

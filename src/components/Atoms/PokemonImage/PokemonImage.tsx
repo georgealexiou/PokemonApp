@@ -1,5 +1,6 @@
+import React from 'react';
 import { Image, ImageResizeMode } from 'react-native';
-import { formatNumber } from '../../../helper';
+import { formatNumber } from '../../../global/helper';
 
 type PokemonImageProps = {
   id: number;
