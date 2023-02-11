@@ -19,6 +19,27 @@ export enum PokemonTypes {
   FAIRY = 'Fairy',
 }
 
+export const stringToPokemonType = {
+  Normal: PokemonTypes.NORMAL,
+  Fire: PokemonTypes.FIRE,
+  Water: PokemonTypes.WATER,
+  Electric: PokemonTypes.ELECTRIC,
+  Grass: PokemonTypes.GRASS,
+  Ice: PokemonTypes.ICE,
+  Fighting: PokemonTypes.FIGHTING,
+  Poison: PokemonTypes.POISON,
+  Ground: PokemonTypes.GROUND,
+  Flying: PokemonTypes.FLYING,
+  Psychic: PokemonTypes.PSYCHIC,
+  Bug: PokemonTypes.BUG,
+  Rock: PokemonTypes.ROCK,
+  Ghost: PokemonTypes.GHOST,
+  Dragon: PokemonTypes.DRAGON,
+  Dark: PokemonTypes.DARK,
+  Steel: PokemonTypes.STEEL,
+  Fairy: PokemonTypes.FAIRY,
+};
+
 export const stringToType = (typeString?: string) => {
   if (!typeString) {
     return undefined;
