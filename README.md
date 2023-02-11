@@ -101,15 +101,15 @@ This project uses
 
 2. Install dependencies
 
-```sh
-yarn
-```
+   ```sh
+   yarn
+   ```
 
 3. Run project
 
-```sh
-yarn start
-```
+   ```sh
+   yarn start
+   ```
 
 ## Roadmap
 
