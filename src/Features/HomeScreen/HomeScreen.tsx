@@ -6,7 +6,7 @@ import { SimplePressable } from '../../Components/Atoms/SimplePressable/SimplePr
 import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
 import { PokemonDetailsModal } from '../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
 import { PokemonList } from '../../Components/Organisms/PokemonList/PokemonList';
-import { textStyle } from '../../Components/Resource/textStyle';
+import { textStyle } from '../../../themes/textStyle';
 import { FeaturedPokemon } from './FeaturedPokemon/FeaturedPokemon';
 import { styles } from './styles';
 

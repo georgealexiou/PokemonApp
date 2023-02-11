@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 import { StatBar } from '../../Atoms/StatBar/StatBar';
-import { textStyle } from '../../Resource/textStyle';
+import { textStyle } from '../../../../themes/textStyle';
 import React from 'react';
 
 type StatsProps = {

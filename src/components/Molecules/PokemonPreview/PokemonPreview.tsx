@@ -2,7 +2,7 @@ import { View, Text, Pressable } from 'react-native';
 import { theme } from '../../../../themes/theme';
 import { capitalizeFirstLetter, formatNumberForList } from '../../../global/helper';
 import { PokemonImage } from '../../Atoms/PokemonImage/PokemonImage';
-import { textStyle } from '../../Resource/textStyle';
+import { textStyle } from '../../../../themes/textStyle';
 import React, { useEffect, useState } from 'react';
 import { Spacer } from '../../Atoms/Spacer.tsx/Spacer';
 import { styles } from './styles';

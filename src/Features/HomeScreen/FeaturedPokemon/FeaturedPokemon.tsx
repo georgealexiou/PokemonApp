@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { Type } from '../../../Components/Atoms/Type/Type';
-import { textStyle } from '../../../Components/Resource/textStyle';
+import { textStyle } from '../../../../themes/textStyle';
 import { capitalizeFirstLetter, formatNumberForList } from '../../../global/helper';
 import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
 import { Pokemon, stringToType } from '../../../global/types';
