@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { View, Text, Pressable, TextInput } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import React, { useMemo, useState } from 'react';
+import { View, Text } from 'react-native';
 import { Pokeball } from '../../assets/svgs';
-import { SimplePressable } from '../../Components/Atoms/SimplePressable/SimplePressable';
-import { Spacer } from '../../Components/Atoms/Spacer.tsx/Spacer';
-import { PokemonDetailsModal } from '../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
-import { PokemonList } from '../../Components/Organisms/PokemonList/PokemonList';
+import { SimplePressable } from '../../components/Atoms/SimplePressable/SimplePressable';
+import { Spacer } from '../../components/Atoms/Spacer.tsx/Spacer';
+import { PokemonDetailsModal } from '../../components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
+import { PokemonList } from '../../components/Organisms/PokemonList/PokemonList';
 import { textStyle } from '../../../themes/textStyle';
 import { FeaturedPokemon } from './FeaturedPokemon/FeaturedPokemon';
 import { styles } from './styles';

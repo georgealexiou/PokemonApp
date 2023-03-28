@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { PokemonImage } from '../../Components/Atoms/PokemonImage/PokemonImage';
-import { SimplePressable } from '../../Components/Atoms/SimplePressable/SimplePressable';
+import { PokemonImage } from '../../components/Atoms/PokemonImage/PokemonImage';
+import { SimplePressable } from '../../components/Atoms/SimplePressable/SimplePressable';
 import { textStyle } from '../../../themes/textStyle';
 import { Generation } from '../../global/types';
 import { styles } from './styles';

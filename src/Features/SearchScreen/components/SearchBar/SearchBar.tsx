@@ -1,11 +1,11 @@
 import React from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
-import { SimpleContainer } from '../../../../Components/Atoms/SimpleContainer/SimpleContainer';
+import { SimpleContainer } from '../../../../components/Atoms/SimpleContainer/SimpleContainer';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { styles } from './styles';
-import { Spacer } from '../../../../Components/Atoms/Spacer.tsx/Spacer';
-import { PokemonList } from '../../../../Components/Organisms/PokemonList/PokemonList';
-import { PokemonDetailsModal } from '../../../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
+import { Spacer } from '../../../../components/Atoms/Spacer.tsx/Spacer';
+import { PokemonList } from '../../../../components/Organisms/PokemonList/PokemonList';
+import { PokemonDetailsModal } from '../../../../components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
 import { useSearchBar } from './useSearchBar';
 
 export const SearchBar: React.FC = () => {
