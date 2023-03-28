@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
-import { Type } from '../../../Components/Atoms/Type/Type';
+import { Type } from '../../../components/Atoms/Type/Type';
 import { textStyle } from '../../../../themes/textStyle';
 import { capitalizeFirstLetter, formatNumberForList } from '../../../global/helper';
-import { Spacer } from '../../../Components/Atoms/Spacer.tsx/Spacer';
+import { Spacer } from '../../../components/Atoms/Spacer.tsx/Spacer';
 import { Pokemon, stringToType } from '../../../global/types';
 import { styles } from './styles';
 import { fetchPokemon } from '../../../global/fetchPokemon';
-import { PokemonImage } from '../../../Components/Atoms/PokemonImage/PokemonImage';
-import { SimplePressable } from '../../../Components/Atoms/SimplePressable/SimplePressable';
+import { PokemonImage } from '../../../components/Atoms/PokemonImage/PokemonImage';
+import { SimplePressable } from '../../../components/Atoms/SimplePressable/SimplePressable';
 import { theme } from '../../../../themes/theme';
 
 type FeaturedPokemonProps = {

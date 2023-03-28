@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { RootStackParams } from '../../RootStack/RootStack';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Screen } from '../../Components/Screen/Screen';
 import { Pokeball } from '../../assets/svgs';
-import { PokemonList } from '../../Components/Organisms/PokemonList/PokemonList';
-import { PokemonDetailsModal } from '../../Components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
+import { Screen } from '../../components/Screen/Screen';
+import { PokemonList } from '../../components/Organisms/PokemonList/PokemonList';
+import { PokemonDetailsModal } from '../../components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
 
 type PokedexProps = {
   navigation: NativeStackScreenProps<RootStackParams, 'PokemonListScreen'>;

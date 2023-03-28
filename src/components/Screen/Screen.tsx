@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useMemo } from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { SafeAreaView, Edge } from 'react-native-safe-area-context';
-import { styles } from './style';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { styles } from './styles';
 
 type ScreenAreaProps = {
   name: string;
