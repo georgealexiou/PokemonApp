@@ -8,6 +8,7 @@ import { PokemonList } from '../../components/Organisms/PokemonList/PokemonList'
 import { textStyle } from '../../../themes/textStyle';
 import { FeaturedPokemon } from './FeaturedPokemon/FeaturedPokemon';
 import { styles } from './styles';
+import { useTheme } from '../../../themes/use-theme';
 
 const HomeScreen = ({ navigation }: any) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -18,10 +19,11 @@ const HomeScreen = ({ navigation }: any) => {
     setFeaturedId(Math.floor(Math.random() * 1008));
   }, []);
 
+  const theme = useTheme();
   return (
     <View
       style={{
-        backgroundColor: 'white',
+        backgroundColor: theme.primaryBackgroundColor,
         paddingTop: 60,
       }}>
       <View style={{ paddingHorizontal: 16 }}>

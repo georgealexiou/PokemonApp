@@ -2,13 +2,16 @@ import React from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { SimpleContainer } from '../../../../components/Atoms/SimpleContainer/SimpleContainer';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { styles } from './styles';
+import { useStyleSheet } from './styles';
 import { Spacer } from '../../../../components/Atoms/Spacer.tsx/Spacer';
 import { PokemonList } from '../../../../components/Organisms/PokemonList/PokemonList';
 import { PokemonDetailsModal } from '../../../../components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
 import { useSearchBar } from './useSearchBar';
+import { useTheme } from '../../../../../themes/use-theme';
 
 export const SearchBar: React.FC = () => {
+  const theme = useTheme();
+  const styles = useStyleSheet(theme);
   const {
     searchTerm,
     filteredPokemon,

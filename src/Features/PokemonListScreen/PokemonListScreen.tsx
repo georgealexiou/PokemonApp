@@ -13,7 +13,7 @@ type PokedexProps = {
 };
 
 export const PokemonListScreen: React.FC<PokedexProps> = ({ navigation, route }) => {
-  const [selectedPokemonId, setSelectedPokemonId] = useState<Number>(1);
+  const [selectedPokemonId, setSelectedPokemonId] = useState<number>(1);
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const list = route.params;
   const onPokemonSelect = (id: number) => {
