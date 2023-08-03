@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import { textStyle } from '../../../themes/textStyle';
+import { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
 
 const Settings = ({ navigation }: any) => {
   return (
     <View>
-      <Text style={textStyle.h1}>You can change stuff here</Text>
+      <ThemeSwitcher />
     </View>
   );
 };
