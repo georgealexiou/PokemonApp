@@ -7,7 +7,6 @@ export const useStyleSheet = (theme: Theme) =>
     tabBarOptionSelected: {
       justifyContent: 'center',
       alignItems: 'center',
-      top: 15,
       backgroundColor: theme.tertiaryBackgroundColor,
       height: 30,
       width: 50,
@@ -16,7 +15,6 @@ export const useStyleSheet = (theme: Theme) =>
     tabBarOptionNotSelected: {
       justifyContent: 'center',
       alignItems: 'center',
-      top: 15,
       width: 50,
       height: 30,
       borderRadius: 100,
@@ -24,7 +22,6 @@ export const useStyleSheet = (theme: Theme) =>
 
     tabBarOptionSearch: {
       justifyContent: 'center',
-      top: 15,
       aspectRatio: 1,
       height: 60,
       alignItems: 'center',
