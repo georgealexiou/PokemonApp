@@ -1,10 +1,13 @@
-import React, { ReactElement, ReactNode, createContext, useState } from 'react';
-import { lightTheme } from './light-theme';
+import React, { ReactNode, createContext, useState } from 'react';
 import { Theme } from '.';
+import { lightTheme } from './light-theme';
 
-export const ThemeContext = createContext(lightTheme);
+export const ThemeContext = createContext<{ theme: Theme; setTheme: React.Dispatch<Theme> }>({
+  theme: lightTheme,
+  setTheme: () => {},
+});
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme] = useState(lightTheme);
-  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
+  const [theme, setTheme] = useState(lightTheme);
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };

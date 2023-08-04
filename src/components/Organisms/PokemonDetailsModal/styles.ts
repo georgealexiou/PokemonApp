@@ -19,7 +19,7 @@ export const useStyleSheet = (theme: Theme) =>
     },
     text: {
       fontSize: 130,
-      color: theme.secondaryTextColor,
+      color: theme.primaryTextColor,
       fontFamily: 'Helvetica',
       fontWeight: 'bold',
       opacity: 0.3,
@@ -44,7 +44,7 @@ export const useStyleSheet = (theme: Theme) =>
       resizeMode: 'contain',
     },
     detailsContainer: {
-      backgroundColor: theme.secondaryTextColor,
+      backgroundColor: theme.primaryBackgroundColor,
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
       width: '100%',

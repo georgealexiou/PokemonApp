@@ -8,7 +8,7 @@ export const useStyleSheet = (theme: Theme) =>
       bottom: 25,
       left: 90,
       right: 90,
-      backgroundColor: theme.primaryBackgroundColor,
+      backgroundColor: theme.secondaryBackgroundColor,
       borderRadius: 200,
       height: 50,
       shadowOffset: { width: -5, height: 5 },

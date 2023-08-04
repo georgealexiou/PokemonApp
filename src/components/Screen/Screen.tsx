@@ -41,32 +41,21 @@ export const Screen: FunctionComponent<ScreenAreaProps> = ({
   const theme = useTheme();
   return (
     <SafeAreaView
-      style={{ ...styles.styledWhiteView, backgroundColor: backgroundColor || theme.secondaryBackgroundColor }}
+      style={{ ...styles.styledWhiteView, backgroundColor: backgroundColor || theme.primaryBackgroundColor }}
       testID="safeAreaView"
       edges={getSafeAreaViewEdges()}>
-      {whiteText ? (
-        <Text
-          style={{
-            fontSize: 30,
-            fontWeight: 'bold',
-            color: theme.secondaryTextColor,
-            alignSelf: 'center',
-            position: 'absolute',
-            top: 50,
-          }}>
-          {name}
-        </Text>
-      ) : (
-        <Text
-          style={{
-            fontSize: 30,
-            alignSelf: 'center',
-            position: 'absolute',
-            top: 50,
-          }}>
-          {name}
-        </Text>
-      )}
+      <Text
+        style={{
+          fontSize: 30,
+          fontWeight: 'bold',
+          color: whiteText ? theme.secondaryTextColor : theme.primaryTextColor,
+          alignSelf: 'center',
+          position: 'absolute',
+          top: 50,
+        }}>
+        {name}
+      </Text>
+
       <View
         style={{
           width: '100%',

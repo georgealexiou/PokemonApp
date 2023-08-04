@@ -25,9 +25,12 @@ const HomeScreen = ({ navigation }: any) => {
       style={{
         backgroundColor: theme.primaryBackgroundColor,
         paddingTop: 60,
+        flex: 1,
       }}>
       <View style={{ paddingHorizontal: 16 }}>
-        <Text style={{ ...textStyle.h1, textAlign: 'left', width: '100%' }}>Welcome to your Pokedex!</Text>
+        <Text style={{ ...textStyle.h1, textAlign: 'left', width: '100%', color: theme.primaryTextColor }}>
+          Welcome to your Pokedex!
+        </Text>
         <Spacer.Column numberOfSpaces={4} />
         <FeaturedPokemon
           id={featuredId as number}
@@ -54,7 +57,7 @@ const HomeScreen = ({ navigation }: any) => {
         </View>
         <View>
           <Spacer.Column numberOfSpaces={6} />
-          <Text style={textStyle.h1}>Favourites</Text>
+          <Text style={{ ...textStyle.h1, color: theme.primaryTextColor }}>Favourites</Text>
           <Spacer.Column numberOfSpaces={1} />
         </View>
       </View>

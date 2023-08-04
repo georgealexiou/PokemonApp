@@ -19,7 +19,7 @@ export const StatBar: React.FC<StatBarProps> = ({ statName, stat = 0, color }) =
   return (
     <View style={{ flexDirection: 'row', width: '100%', marginTop: 4 }}>
       <View style={{ width: '43%' }}>
-        <Text style={textStyle.caption}>{statName}</Text>
+        <Text style={[textStyle.caption, styles.textColor]}>{statName}</Text>
       </View>
       <View style={{ width: '47%', justifyContent: 'center' }}>
         <View
@@ -33,7 +33,7 @@ export const StatBar: React.FC<StatBarProps> = ({ statName, stat = 0, color }) =
         />
       </View>
       <View style={{ width: '10%' }}>
-        <Text style={textStyle.caption}>{stat}</Text>
+        <Text style={[textStyle.caption, styles.textColor]}>{stat}</Text>
       </View>
     </View>
   );

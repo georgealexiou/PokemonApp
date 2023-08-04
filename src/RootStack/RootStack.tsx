@@ -66,6 +66,12 @@ function Main() {
         component={SettingsScreen}
         options={{
           headerShown: true,
+          headerStyle: {
+            backgroundColor: theme.primaryBackgroundColor,
+          },
+          headerTitleStyle: {
+            color: theme.primaryTextColor,
+          },
           tabBarIcon: ({ focused }) => <TabOption focused={focused} icon="gear" />,
         }}
       />
