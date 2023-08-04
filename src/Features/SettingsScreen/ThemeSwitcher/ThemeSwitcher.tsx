@@ -22,13 +22,7 @@ export const ThemeSwitcher = () => {
   const styles = useStyleSheet(theme);
   return (
     <SafeAreaView style={styles.container}>
-      <Switch
-        // trackColor={{ false: '#767577', true: '#81b0ff' }}
-        // thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-        // ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
+      <Switch onValueChange={toggleSwitch} value={isEnabled} />
       <Text style={styles.text}>Dark Mode</Text>
     </SafeAreaView>
   );
@@ -37,11 +31,7 @@ export const ThemeSwitcher = () => {
 const useStyleSheet = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+      flexDirection: 'row',
     },
-    text: {
-      color: 'black',
-    },
+    text: { color: theme.primaryTextColor },
   });
