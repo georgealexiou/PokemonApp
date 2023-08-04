@@ -12,7 +12,7 @@ export const SearchScreen: React.FC = () => {
     <View style={styles.screen}>
       <SearchBar />
       <View style={styles.background}>
-        <Pokeball />
+        <Pokeball color={theme.contrastIconColor} />
       </View>
     </View>
   );

@@ -45,13 +45,13 @@ const HomeScreen = ({ navigation }: any) => {
             style={styles.button}
             onPress={() => navigation.navigate('GenerationsScreen', { screen: 'Settings' })}>
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-              <Text style={textStyle.h2}>Generations</Text>
+              <Text style={{ ...textStyle.h2, color: theme.primaryTextColor }}>Generations</Text>
             </View>
           </SimplePressable>
           <Spacer.Flex />
           <SimplePressable style={styles.button}>
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-              <Text style={textStyle.h2}>Favourites</Text>
+              <Text style={{ ...textStyle.h2, color: theme.primaryTextColor }}>Favourites</Text>
             </View>
           </SimplePressable>
         </View>
@@ -70,7 +70,7 @@ const HomeScreen = ({ navigation }: any) => {
         }}
       />
       <View style={{ position: 'absolute', zIndex: -1, height: '100%', justifyContent: 'flex-end', right: -170 }}>
-        <Pokeball />
+        <Pokeball color={theme.contrastIconColor} />
       </View>
       <PokemonDetailsModal visible={modalVisible} setModalVisible={setModalVisible} pokemonId={id} />
     </View>

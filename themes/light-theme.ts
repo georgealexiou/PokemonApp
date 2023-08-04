@@ -5,5 +5,5 @@ export const lightTheme = {
   primaryTextColor: 'black',
   secondaryTextColor: 'white',
   primaryShadowColor: 'black',
-  contrastIconColor: 'white',
+  contrastIconColor: '#FAF9F6',
 };

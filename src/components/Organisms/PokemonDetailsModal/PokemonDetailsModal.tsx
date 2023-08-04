@@ -42,7 +42,7 @@ export const PokemonDetailsModal: React.FC<PokemonDetailsModalProps> = ({ visibl
         <View style={styles.detailsContainer}>
           <View>
             <View style={styles.backgroundPokeball}>
-              <Pokeball />
+              <Pokeball color={theme.contrastIconColor} />
             </View>
             <View style={styles.typesContainer}>
               <Type type={stringToType(pokemon?.types[0]?.type.name)} />

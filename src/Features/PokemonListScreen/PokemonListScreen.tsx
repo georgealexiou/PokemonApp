@@ -24,7 +24,7 @@ export const PokemonListScreen: React.FC<PokedexProps> = ({ navigation, route })
   return (
     <Screen name={'Region'}>
       <View style={{ position: 'absolute', zIndex: -1, height: '100%', justifyContent: 'flex-start', right: -100 }}>
-        <Pokeball />
+        <Pokeball color={theme.contrastIconColor} />
       </View>
       <PokemonList pokemonIds={list} onPress={onPokemonSelect} />
       <PokemonDetailsModal visible={visibleModal} setModalVisible={setVisibleModal} pokemonId={selectedPokemonId} />

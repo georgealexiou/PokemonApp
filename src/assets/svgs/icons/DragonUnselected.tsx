@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Svg, { G, Path, Defs, ClipPath } from 'react-native-svg';
-const SvgComponent = (props: JSX.IntrinsicClassAttributes<Svg>) => (
+import Svg, { G, Path, Defs, ClipPath, SvgProps } from 'react-native-svg';
+
+const SvgComponent = (props: SvgProps) => (
   <Svg xmlns="http://www.w3.org/2000/svg" width={50} height={50} fill="none" {...props}>
     <G clipPath="url(#a)">
       <Path
