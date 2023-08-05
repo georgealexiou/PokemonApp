@@ -6,6 +6,7 @@ import { Pokeball } from '../../assets/svgs';
 import { Screen } from '../../components/Screen/Screen';
 import { PokemonList } from '../../components/Organisms/PokemonList/PokemonList';
 import { PokemonDetailsModal } from '../../components/Organisms/PokemonDetailsModal/PokemonDetailsModal';
+import { useTheme } from '../../../themes/use-theme';
 
 type PokedexProps = {
   navigation: NativeStackScreenProps<RootStackParams, 'PokemonListScreen'>;
@@ -14,6 +15,7 @@ type PokedexProps = {
 
 export const PokemonListScreen: React.FC<PokedexProps> = ({ navigation, route }) => {
   const [selectedPokemonId, setSelectedPokemonId] = useState<number>(1);
+  const theme = useTheme();
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const list = route.params;
   const onPokemonSelect = (id: number) => {

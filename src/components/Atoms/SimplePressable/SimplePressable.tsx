@@ -1,7 +1,6 @@
 import { Pressable } from 'react-native';
 import { ReactNode } from 'react';
 import { SimpleContainer } from '../SimpleContainer/SimpleContainer';
-import { theme } from '../../../../themes/theme';
 import React from 'react';
 import { useTheme } from '../../../../themes/use-theme';
 

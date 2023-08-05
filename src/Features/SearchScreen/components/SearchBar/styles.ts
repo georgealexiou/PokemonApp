@@ -13,13 +13,18 @@ export const useStyleSheet = (theme: Theme) =>
       alignItems: 'center',
       flex: 1,
       padding: 10,
+      backgroundColor: theme.primaryBackgroundColor,
+      color: theme.primaryTextColor,
     },
     textField: {
       flex: 1,
+      backgroundColor: theme.primaryBackgroundColor,
+      color: theme.primaryTextColor,
     },
     text: {
       alignSelf: 'center',
       justifyContent: 'center',
+      color: theme.primaryTextColor,
       ...textStyle.caption,
     },
   });

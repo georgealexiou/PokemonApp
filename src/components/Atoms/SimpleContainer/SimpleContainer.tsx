@@ -25,11 +25,9 @@ export const SimpleContainer: React.FC<TypeProps> = ({
   const styles = useStyleSheet(theme);
   return (
     <>
-      {shadow ? (
-        <View style={{ ...styles.container, backgroundColor, ...style }}>{children}</View>
-      ) : (
-        <View style={{ ...styles.containerNoShadow, backgroundColor, ...style }}>{children}</View>
-      )}
+      <View style={{ ...(shadow ? styles.container : styles.containerNoShadow), backgroundColor, ...style }}>
+        {children}
+      </View>
     </>
   );
 };

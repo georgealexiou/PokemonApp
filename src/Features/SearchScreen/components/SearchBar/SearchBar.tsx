@@ -26,17 +26,18 @@ export const SearchBar: React.FC = () => {
     <View>
       <SimpleContainer style={styles.container}>
         <View style={styles.innerContainer}>
-          <Icon name={'search'} size={20} />
+          <Icon style={{ color: theme.primaryTextColor }} name={'search'} size={20} />
           <Spacer.Row numberOfSpaces={2} />
           <TextInput
             value={searchTerm}
             onChangeText={handleSearch}
             placeholder="Search for a Pokemon"
+            placeholderTextColor={theme.primaryTextColor}
             style={styles.textField}
           />
           {searchTerm.length > 0 && (
             <Pressable onPress={onXIconPress}>
-              <Icon name={'close'} size={20} />
+              <Icon style={{ color: theme.primaryTextColor }} name={'close'} size={20} />
             </Pressable>
           )}
         </View>
